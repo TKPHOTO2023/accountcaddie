@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal, .club-card, .hole');
+  const revealEls = document.querySelectorAll('.reveal, .service-card, .step');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
