@@ -92,4 +92,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealEls.forEach(el => io.observe(el));
   }
+
+  // parallax media — translates each [data-parallax] layer against scroll
+  // position, gated behind an IntersectionObserver so only sections
+  // actually on screen do any work.
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  if (parallaxEls.length && !prefersReduced) {
+    const active = new Set();
+    let ticking = false;
+
+    function updateParallax() {
+      active.forEach(el => {
+        const rect = el.parentElement.getBoundingClientRect();
+        const speed = parseFloat(el.dataset.parallax) || 0.15;
+        const offset = (rect.top - (window.innerHeight - rect.height) / 2) * speed;
+        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+      });
+      ticking = false;
+    }
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    const parallaxIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) active.add(entry.target);
+        else active.delete(entry.target);
+      });
+      requestTick();
+    }, { rootMargin: '20% 0px' });
+
+    parallaxEls.forEach(el => parallaxIo.observe(el));
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+  }
 });

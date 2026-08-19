@@ -253,11 +253,47 @@ button{ font-family:inherit; }
   mask-image:radial-gradient(ellipse 65% 55% at 78% 35%, black 0%, transparent 72%);
   -webkit-mask-image:radial-gradient(ellipse 65% 55% at 78% 35%, black 0%, transparent 72%);
   opacity:.7;
-  z-index:0;
+  z-index:1;
   pointer-events:none;
 }
+
+/* hero background video — faded into the navy/orange wash, not a flat
+   overlay: a diagonal mask keeps it clear of the headline on the left
+   and a screen blend lets the brand gradient tint it rather than sit
+   on top of it. */
+.hero-video-wrap{
+  position:absolute; inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  opacity:.55;
+  mix-blend-mode:screen;
+  filter:saturate(1.15);
+  mask-image:
+    linear-gradient(115deg, transparent 2%, black 42%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(115deg, transparent 2%, black 42%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+  mask-composite:intersect;
+  -webkit-mask-composite:source-in;
+}
+.hero-video-wrap::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(100deg, var(--navy-900) 0%, rgba(13,21,39,.75) 30%, rgba(13,21,39,.15) 55%, transparent 75%);
+}
+@media (max-width:860px), (prefers-reduced-motion: reduce){
+  .hero-video{ display:none; }
+}
+
 .hero .container{
-  position:relative; z-index:1;
+  position:relative; z-index:2;
   display:grid;
   grid-template-columns:1.15fr .85fr;
   gap:56px;
@@ -403,7 +439,33 @@ section{ position:relative; }
 .process{
   background:linear-gradient(180deg, var(--navy-900), var(--navy-800) 60%, var(--navy-700));
   color:var(--white);
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
 }
+.process-video-wrap{
+  position:absolute; inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.process-video-wrap video,
+.process-video-wrap img{
+  position:absolute; top:-8%; left:0;
+  width:100%; height:116%;
+  object-fit:cover;
+  opacity:.28;
+  will-change:transform;
+}
+.process-video-wrap::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, var(--navy-900) 0%, rgba(13,21,39,.88) 40%, rgba(19,39,75,.9) 100%);
+}
+@media (prefers-reduced-motion: reduce){
+  .process-video-wrap video{ display:none; }
+}
+.process > .container{ position:relative; z-index:1; }
 .steps{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -444,7 +506,30 @@ section{ position:relative; }
 /* =============== why us / stats strip =============== */
 .stats{
   background:var(--surface-dim);
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
 }
+.stats-media{
+  position:absolute; inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.stats-media img{
+  position:absolute; top:-10%; left:0;
+  width:100%; height:120%;
+  object-fit:cover;
+  opacity:.16;
+  filter:grayscale(1) contrast(1.05);
+  will-change:transform;
+}
+.stats-media::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, var(--surface-dim) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0) 55%, var(--surface-dim) 100%);
+}
+.stats > .container{ position:relative; z-index:1; }
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -466,6 +551,52 @@ section{ position:relative; }
 .stat-card span{
   display:block; margin-top:8px;
   font-size:14px; color:var(--text-muted); line-height:1.5;
+}
+
+/* =============== parallax banner (standalone media moment) =============== */
+.parallax-banner{
+  position:relative;
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  color:var(--white);
+}
+.parallax-media{
+  position:absolute; inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.parallax-media img{
+  position:absolute; top:-15%; left:0;
+  width:100%; height:130%;
+  object-fit:cover;
+  will-change:transform;
+}
+.parallax-media::after{
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(100deg, rgba(13,21,39,.92) 0%, rgba(13,21,39,.62) 45%, rgba(245,131,31,.28) 100%),
+    linear-gradient(0deg, rgba(13,21,39,.55), rgba(13,21,39,.55));
+}
+.parallax-banner .container{
+  position:relative; z-index:1;
+}
+.parallax-banner .eyebrow{ color:var(--orange-500); margin-bottom:18px; }
+.parallax-banner h2{
+  font-size:clamp(1.9rem,3.4vw,3rem);
+  max-width:18ch;
+  color:var(--white);
+}
+.parallax-banner p{
+  margin-top:18px; font-size:16.5px; line-height:1.65;
+  max-width:48ch; color:rgba(255,255,255,.8);
+}
+@media (max-width:640px){
+  .parallax-banner{ min-height:420px; }
 }
 
 /* =============== group affiliation =============== */
