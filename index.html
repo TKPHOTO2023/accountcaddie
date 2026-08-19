@@ -10,6 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23f5831f'/%3E%3Cpath d='M6 15l4-4 3 3 5-6' fill='none' stroke='%230d1527' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+  (function(){
+    var saved = localStorage.getItem('ac-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 </head>
 <body>
 
@@ -22,12 +29,16 @@
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="#process">How it works</a></li>
-      <li><a href="#stats">Why us</a></li>
       <li><a href="#group">The Group</a></li>
       <li><a href="#clients">Clients</a></li>
     </ul>
     <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5a8.5 8.5 0 1 1-9-11 7 7 0 0 0 9 9Z"/></svg>
+      </button>
       <a href="#contact" class="btn btn-orange" style="padding:11px 22px;font-size:14px;">Book a consult</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -38,8 +49,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Services</a>
+  <a href="pricing.html">Pricing</a>
   <a href="#process">How it works</a>
-  <a href="#stats">Why us</a>
   <a href="#group">The Group</a>
   <a href="#clients">Clients</a>
   <a href="#contact" class="btn btn-orange">Book a consult</a>
@@ -336,8 +347,8 @@
       <div>
         <h4>Get in touch</h4>
         <ul>
-          <li><a href="mailto:hello@accountcaddie.co.za">hello@accountcaddie.co.za</a></li>
-          <li><a href="tel:+27000000000">+27 00 000 0000</a></li>
+          <li><a href="mailto:info@accountcaddie.co.za">info@accountcaddie.co.za</a></li>
+          <li><a href="tel:+27870876297">087 087 6297</a></li>
           <li><a href="#contact">Book a consult</a></li>
         </ul>
       </div>
