@@ -212,7 +212,7 @@ button{ font-family:inherit; }
 }
 .logo-img{
   display:block;
-  height:34px;
+  height:46px;
   width:auto;
 }
 .nav-links{
@@ -711,7 +711,7 @@ section{ position:relative; }
   display:flex; align-items:center;
   margin-bottom:14px;
 }
-.logo-img-footer{ height:42px; }
+.logo-img-footer{ height:56px; }
 .site-footer p{ font-size:14px; line-height:1.6; max-width:32ch; }
 .site-footer h4{
   font-family:var(--font-body); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
@@ -748,7 +748,7 @@ section{ position:relative; }
   .nav-links{ display:none; }
   .nav-cta .btn-orange{ display:none; }
   .nav-toggle{ display:flex; }
-  .logo-img{ height:28px; }
+  .logo-img{ height:36px; }
   .hero .container{ grid-template-columns:1fr; }
   .hero-copy .lede{ max-width:none; }
   .dash-panel{ max-width:380px; }
