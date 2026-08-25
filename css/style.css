@@ -339,8 +339,8 @@ button{ font-family:inherit; }
 .hero-globe{
   position:relative;
   width:100%;
-  max-width:760px;
-  height:760px;
+  max-width:840px;
+  height:840px;
   margin-inline:auto;
   pointer-events:auto;
   animation: float 7s ease-in-out infinite;
@@ -360,13 +360,13 @@ button{ font-family:inherit; }
   .hero-globe{ animation:none; }
 }
 @media (max-width:1180px){
-  .hero-globe{ max-width:620px; height:620px; }
+  .hero-globe{ max-width:680px; height:680px; }
 }
 @media (max-width:860px){
-  .hero-globe{ max-width:500px; height:500px; }
+  .hero-globe{ max-width:540px; height:540px; }
 }
 @media (max-width:640px){
-  .hero-globe{ max-width:420px; height:420px; }
+  .hero-globe{ max-width:450px; height:450px; }
 }
 
 /* =============== section shell =============== */
