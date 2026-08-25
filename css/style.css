@@ -333,11 +333,15 @@ button{ font-family:inherit; }
   font-size:12.5px; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em;
 }
 
-/* floating dashboard panel */
-.dash-panel{
+/* floating interactive globe */
+.hero-globe{
+  position:relative;
   border-radius:var(--radius-lg);
-  padding:26px 26px 22px;
-  color:var(--white);
+  overflow:hidden;
+  width:100%;
+  max-width:460px;
+  height:460px;
+  margin-inline:auto;
   box-shadow:0 30px 70px -20px rgba(0,0,0,.6);
   animation: float 7s ease-in-out infinite;
 }
@@ -345,37 +349,20 @@ button{ font-family:inherit; }
   0%,100%{ transform:translateY(0px) rotate(-.4deg); }
   50%{ transform:translateY(-14px) rotate(.4deg); }
 }
-.dash-panel-head{
-  display:flex; justify-content:space-between; align-items:center;
-  padding-bottom:16px; margin-bottom:16px;
-  border-bottom:1px dashed rgba(255,255,255,.22);
+.hero-globe-frame{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+  display:block;
 }
-.dash-panel-head .tag{
-  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--orange-500);
+@media (prefers-reduced-motion: reduce){
+  .hero-globe{ animation:none; }
 }
-.dash-panel-head .mark-lg{
-  width:32px;height:32px;
+@media (max-width:860px){
+  .hero-globe{ max-width:380px; height:380px; }
 }
-.dash-row{
-  display:flex; justify-content:space-between; align-items:baseline;
-  padding:10px 0;
-  font-size:14.5px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.dash-row:last-of-type{ border-bottom:none; }
-.dash-row .k{ color:rgba(255,255,255,.66); }
-.dash-row .v{ font-family:var(--font-mono); color:var(--orange-500); font-weight:600; }
-.dash-foot{
-  margin-top:18px; padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.14);
-  display:flex; justify-content:space-between; align-items:center;
-}
-.dash-foot .note{ font-family:var(--font-mono); font-size:13px; color:rgba(255,255,255,.55); }
-.dash-foot .badge{
-  font-family:var(--font-mono); font-size:12px; font-weight:600;
-  color:var(--navy-900); background:var(--orange-500);
-  padding:5px 12px; border-radius:999px;
+@media (max-width:640px){
+  .hero-globe{ height:340px; }
 }
 
 /* =============== section shell =============== */
