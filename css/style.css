@@ -390,6 +390,61 @@ section{ position:relative; }
 .on-dark .section-head .eyebrow{ color:var(--orange-500); }
 
 /* =============== services =============== */
+/* =============== works-with logo marquee =============== */
+.marquee-section{
+  background:var(--surface);
+  padding-block:52px 60px;
+  border-bottom:1px solid var(--card-border-strong);
+}
+.marquee-label{
+  text-align:center;
+  font-size:12.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:34px;
+}
+.marquee-track-wrap{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:marquee-scroll 28s linear infinite;
+}
+.marquee-track:hover{ animation-play-state:paused; }
+.marquee-group{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  padding-right:28px;
+}
+.brand-logo{
+  display:flex; align-items:center; height:34px;
+  padding:14px 24px;
+  border-radius:14px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 1px 2px rgba(13,21,39,.06);
+  filter:grayscale(1) opacity(0.6);
+  transition:filter .3s;
+}
+.brand-logo:hover{ filter:grayscale(0) opacity(1); }
+.brand-logo svg{ height:100%; width:auto; display:block; }
+.brand-logo.brand-xero svg{ height:38px; }
+@keyframes marquee-scroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation:none; flex-wrap:wrap; justify-content:center; }
+  .marquee-group:last-child{ display:none; }
+}
+@media (max-width:640px){
+  .marquee-group{ gap:18px; padding-right:18px; }
+  .brand-logo{ height:28px; padding:10px 18px; }
+  .brand-logo.brand-xero svg{ height:32px; }
+}
+
 .services{
   background:var(--surface);
 }
@@ -397,6 +452,13 @@ section{ position:relative; }
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:22px;
+}
+#values .service-grid{ grid-template-columns:repeat(4, 1fr); }
+@media (max-width:1080px){
+  #values .service-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:640px){
+  #values .service-grid{ grid-template-columns:1fr; }
 }
 .service-card{
   position:relative;
@@ -544,6 +606,56 @@ section{ position:relative; }
 .stat-card span{
   display:block; margin-top:8px;
   font-size:14px; color:var(--text-muted); line-height:1.5;
+}
+
+/* =============== about: story + team =============== */
+.story-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:56px;
+  align-items:start;
+}
+.story-facts{
+  display:flex; flex-direction:column; gap:16px;
+}
+.story-facts .stat-card{ padding:22px 22px; }
+@media (max-width:960px){
+  .story-grid{ grid-template-columns:1fr; }
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.team-card{
+  border-radius:var(--radius-md);
+  padding:32px 24px;
+  text-align:center;
+  background:var(--glass-fill-dark);
+  border:1px solid var(--glass-border-dark);
+  opacity:0; transform:translateY(24px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.team-card.is-visible{ opacity:1; transform:translateY(0); }
+.team-avatar{
+  width:72px; height:72px; margin:0 auto 18px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--orange-500),var(--navy-700));
+  color:#fff; font-family:var(--font-mono); font-size:19px; font-weight:600;
+}
+.team-card h3{ font-size:16.5px; color:var(--white); margin-bottom:6px; }
+.team-card .role{
+  display:block; font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--orange-500); margin-bottom:14px;
+}
+.team-card .bio{ font-size:13.5px; line-height:1.6; color:rgba(255,255,255,.68); }
+@media (max-width:1080px){
+  .team-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:640px){
+  .team-grid{ grid-template-columns:1fr; }
 }
 
 /* =============== parallax banner (standalone media moment) =============== */
@@ -789,7 +901,7 @@ section{ position:relative; }
   padding-top:150px;
   padding-bottom:70px;
 }
-.pricing-hero-inner{
+.pricing-hero .pricing-hero-inner{
   text-align:center;
   display:flex; flex-direction:column; align-items:center;
   position:relative; z-index:1;

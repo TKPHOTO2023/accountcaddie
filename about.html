@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Account Caddie</title>
+<meta name="description" content="Account Caddie is a South African bookkeeping, tax, payroll and CFO advisory practice, and a member of the New Generation Group. Meet the team behind the numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23f5831f'/%3E%3Cpath d='M6 15l4-4 3 3 5-6' fill='none' stroke='%230d1527' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+  (function(){
+    var saved = localStorage.getItem('ac-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner glass-dark">
+    <a href="/" class="nav-brand">
+      <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/about" aria-current="page" style="opacity:1;">About</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/#process">How it works</a></li>
+      <li><a href="/#clients">Clients</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5a8.5 8.5 0 1 1-9-11 7 7 0 0 0 9 9Z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn-orange" style="padding:11px 22px;font-size:14px;">Book a consult</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/#services">Services</a>
+  <a href="/about">About</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/#process">How it works</a>
+  <a href="/#clients">Clients</a>
+  <a href="/#contact" class="btn btn-orange">Book a consult</a>
+</div>
+
+<!-- ===================== ABOUT HERO ===================== -->
+<header class="hero pricing-hero" id="top">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
+      <source src="assets/video/hero-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container pricing-hero-inner">
+    <span class="eyebrow">About Account Caddie</span>
+    <h1>Real accountants,<br>behind every number.</h1>
+    <p class="lede">We started Account Caddie because too many good businesses were making decisions on financials that were weeks out of date, or worse, wrong. We're a bookkeeping, tax, payroll and advisory practice built to fix that — and a member of the New Generation Group.</p>
+  </div>
+</header>
+
+<!-- ===================== OUR STORY ===================== -->
+<section class="services section-pad" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="section-head reveal" style="margin-bottom:0;">
+        <span class="eyebrow">Our story</span>
+        <h2>Founded on a simple frustration.</h2>
+        <p>Since 2011, Account Caddie has worked with South African business owners who were tired of accountants who only showed up at tax season. We built a practice around a different idea: your books should be current enough, and your accountant close enough, that you can actually make decisions from them — not just file them away.</p>
+      </div>
+      <div class="story-facts reveal">
+        <div class="stat-card">
+          <strong>15+ yrs</strong>
+          <span>In practice, through multiple tax-law and SARS eFiling overhauls.</span>
+        </div>
+        <div class="stat-card">
+          <strong>500+</strong>
+          <span>South African businesses currently on our books.</span>
+        </div>
+        <div class="stat-card">
+          <strong>2006</strong>
+          <span>The year our parent group, New Generation Group, was founded.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARALLAX BANNER ===================== -->
+<section class="parallax-banner">
+  <div class="parallax-media">
+    <img src="assets/images/banner-reports.jpg" data-parallax="0.15" alt="" loading="lazy">
+  </div>
+  <div class="container reveal">
+    <span class="eyebrow">How we work</span>
+    <h2>Every set of books, reviewed by a person.</h2>
+    <p>Software does the arithmetic. Our team does the judgment calls — reading context software can't, and catching what it wouldn't.</p>
+  </div>
+</section>
+
+<!-- ===================== VALUES ===================== -->
+<section class="services section-pad" id="values">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we stand for</span>
+      <h2>Four things that don't change as we grow.</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <span class="service-tag">Clarity</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+        <h3>Numbers you can actually read</h3>
+        <p>No jargon dumps, no 40-tab spreadsheets. If you can't understand your own management accounts, we haven't done our job.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Accountability</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3Z"/></svg>
+        <h3>We own our mistakes</h3>
+        <p>Miss a deadline or get something wrong, and we tell you first, fix it fast, and explain exactly what happened.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Partnership</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Your growth is the job</h3>
+        <p>We're not counting transactions, we're tracking your business. A quiet quarter and a growth spurt both change how we work with you.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Precision</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg>
+        <h3>Deadlines aren't optional</h3>
+        <p>SARS doesn't grade on a curve, and neither do we. Filings go in on time, every time, or you hear from us well before they're due.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MEET THE TEAM ===================== -->
+<section class="process section-pad on-dark" id="team">
+  <div class="process-video-wrap">
+    <video autoplay muted loop playsinline poster="assets/images/process-poster.jpg" data-parallax="0.08">
+      <source src="assets/video/process-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Meet the team</span>
+      <h2>The people behind your numbers.</h2>
+      <p>Placeholder profiles below — swap in real names, roles, photos and bios whenever you're ready and this section is done.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">MD</div>
+        <h3>Managing Director</h3>
+        <span class="role">Founder</span>
+        <p class="bio">Leads the practice and sets the standard every set of accounts is held to before it reaches a client.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">SB</div>
+        <h3>Senior Bookkeeper</h3>
+        <span class="role">Bookkeeping lead</span>
+        <p class="bio">Owns monthly reconciliations and management accounts across the client book.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">PL</div>
+        <h3>Payroll &amp; Tax Lead</h3>
+        <span class="role">SARS-registered practitioner</span>
+        <p class="bio">Handles payroll runs, EMP submissions, and SARS correspondence end to end.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">CS</div>
+        <h3>Client Success</h3>
+        <span class="role">Your first call</span>
+        <p class="bio">The person who actually answers when you have a question about your books.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GROUP AFFILIATION ===================== -->
+<section class="group-band section-pad" id="group">
+  <div class="container">
+    <div class="group-card glass-dark reveal">
+      <div>
+        <div class="group-badge-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5831f" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          A member of New Generation Group
+        </div>
+        <h2 style="margin-top:16px;font-size:clamp(1.6rem,2.6vw,2.2rem);">Independent practice, backed by group-level resources.</h2>
+        <p class="lede">Account Caddie operates as its own practice day to day, but draws on the New Generation Group's governance, systems and technology backbone — so the specialists, oversight and continuity behind your accounts go well beyond the people you speak to directly.</p>
+      </div>
+      <div class="group-facts">
+        <div><strong>Est. 2006</strong><span>New Generation Group founded</span></div>
+        <div><strong>Level 1</strong><span>B-BBEE contributor status</span></div>
+        <div><strong>6</strong><span>Specialist divisions across the group</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-band section-pad" id="contact">
+  <div class="container">
+    <div class="cta-panel glass-dark reveal" style="grid-template-columns:1fr;text-align:center;">
+      <div>
+        <span class="eyebrow" style="color:var(--orange-500);justify-content:center;">Want to meet us properly?</span>
+        <h2 style="margin-top:16px;">Book a consult and talk to the team directly.</h2>
+        <p class="lede" style="margin-inline:auto;">No call centre, no account rotation — you'll speak to the same people who actually work on your books.</p>
+        <a href="/#contact" class="btn btn-orange" style="margin-top:28px;">Book your consult</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img logo-img-footer">
+        </div>
+        <p>Bookkeeping, tax, payroll and financial advisory for growing South African businesses. A member of the New Generation Group.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/#services">Bookkeeping</a></li>
+          <li><a href="/#services">Tax &amp; SARS</a></li>
+          <li><a href="/#services">Payroll</a></li>
+          <li><a href="/#services">CFO advisory</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/#process">How it works</a></li>
+          <li><a href="#group">New Generation Group</a></li>
+          <li><a href="/#clients">Client stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:info@accountcaddie.co.za">info@accountcaddie.co.za</a></li>
+          <li><a href="tel:+27870876297">087 087 6297</a></li>
+          <li><a href="/#contact">Book a consult</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Account Caddie. A member of New Generation Group.</span>
+      <span>Team profiles shown are placeholders.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
