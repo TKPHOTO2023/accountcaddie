@@ -424,11 +424,9 @@ section{ position:relative; }
 }
 .brand-logo{
   display:flex; align-items:center; justify-content:center;
-  height:32px;
+  height:38px;
 }
-.brand-logo svg,
 .brand-logo img{ height:100%; width:auto; display:block; }
-.brand-logo.brand-xero svg{ height:36px; }
 @keyframes marquee-scroll{
   from{ transform:translateX(0); }
   to{ transform:translateX(-50%); }
@@ -438,9 +436,8 @@ section{ position:relative; }
   .marquee-group:last-child{ display:none; }
 }
 @media (max-width:640px){
-  .marquee-group{ gap:48px; padding-right:48px; }
-  .brand-logo{ height:26px; }
-  .brand-logo.brand-xero svg{ height:30px; }
+  .marquee-group{ gap:40px; padding-right:40px; }
+  .brand-logo{ height:30px; }
 }
 
 .services{
