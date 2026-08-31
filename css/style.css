@@ -715,6 +715,12 @@ section{ position:relative; }
   align-items:center;
 }
 .group-card .lede{ font-size:16.5px; line-height:1.7; color:rgba(255,255,255,.76); max-width:56ch; margin-top:16px; }
+.group-logo{
+  height:46px;
+  width:auto;
+  margin-bottom:22px;
+  display:block;
+}
 .group-card .group-badge-line{
   display:flex; align-items:center; gap:14px;
   font-family:var(--font-body); font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-500); font-weight:600;
