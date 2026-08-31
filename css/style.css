@@ -396,7 +396,7 @@ section{ position:relative; }
    background they were designed for. */
 .marquee-section{
   background:#ffffff;
-  padding-block:56px 64px;
+  padding-block:48px 54px;
   border-bottom:1px solid rgba(13,21,39,.08);
 }
 .marquee-label{
@@ -424,7 +424,7 @@ section{ position:relative; }
 }
 .brand-logo{
   display:flex; align-items:center; justify-content:center;
-  height:64px;
+  height:50px;
 }
 .brand-logo img{ height:100%; width:auto; display:block; }
 @keyframes marquee-scroll{
@@ -437,7 +437,7 @@ section{ position:relative; }
 }
 @media (max-width:640px){
   .marquee-group{ gap:40px; padding-right:40px; }
-  .brand-logo{ height:44px; }
+  .brand-logo{ height:34px; }
 }
 
 .services{
