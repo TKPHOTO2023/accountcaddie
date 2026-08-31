@@ -391,16 +391,19 @@ section{ position:relative; }
 
 /* =============== services =============== */
 /* =============== works-with logo marquee =============== */
+/* Fixed white band on purpose -- stays white regardless of the site's
+   light/dark toggle, so full-colour logo files always sit on the
+   background they were designed for. */
 .marquee-section{
-  background:var(--surface);
-  padding-block:52px 60px;
-  border-bottom:1px solid var(--card-border-strong);
+  background:#ffffff;
+  padding-block:44px 50px;
+  border-bottom:1px solid rgba(13,21,39,.08);
 }
 .marquee-label{
   text-align:center;
   font-size:12.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--text-muted);
-  margin-bottom:34px;
+  color:#8a8f98;
+  margin-bottom:30px;
 }
 .marquee-track-wrap{
   overflow:hidden;
@@ -410,39 +413,34 @@ section{ position:relative; }
 .marquee-track{
   display:flex;
   width:max-content;
-  animation:marquee-scroll 28s linear infinite;
+  animation:marquee-scroll 32s linear infinite;
 }
 .marquee-track:hover{ animation-play-state:paused; }
 .marquee-group{
   display:flex;
   align-items:center;
-  gap:28px;
-  padding-right:28px;
+  gap:88px;
+  padding-right:88px;
 }
 .brand-logo{
-  display:flex; align-items:center; height:34px;
-  padding:14px 24px;
-  border-radius:14px;
-  background:rgba(255,255,255,.92);
-  box-shadow:0 1px 2px rgba(13,21,39,.06);
-  filter:grayscale(1) opacity(0.6);
-  transition:filter .3s;
+  display:flex; align-items:center; justify-content:center;
+  height:32px;
 }
-.brand-logo:hover{ filter:grayscale(0) opacity(1); }
-.brand-logo svg{ height:100%; width:auto; display:block; }
-.brand-logo.brand-xero svg{ height:38px; }
+.brand-logo svg,
+.brand-logo img{ height:100%; width:auto; display:block; }
+.brand-logo.brand-xero svg{ height:36px; }
 @keyframes marquee-scroll{
   from{ transform:translateX(0); }
   to{ transform:translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce){
-  .marquee-track{ animation:none; flex-wrap:wrap; justify-content:center; }
+  .marquee-track{ animation:none; flex-wrap:wrap; justify-content:center; row-gap:24px; }
   .marquee-group:last-child{ display:none; }
 }
 @media (max-width:640px){
-  .marquee-group{ gap:18px; padding-right:18px; }
-  .brand-logo{ height:28px; padding:10px 18px; }
-  .brand-logo.brand-xero svg{ height:32px; }
+  .marquee-group{ gap:48px; padding-right:48px; }
+  .brand-logo{ height:26px; }
+  .brand-logo.brand-xero svg{ height:30px; }
 }
 
 .services{
