@@ -642,11 +642,11 @@ section{ position:relative; }
 .leader-row.is-visible{ opacity:1; transform:translateY(0); }
 .leader-photo{
   flex:none;
-  width:96px; height:112px;
-  border-radius:12px;
+  width:150px; height:175px;
+  border-radius:14px;
   display:flex; align-items:center; justify-content:center;
   background:linear-gradient(135deg,var(--orange-500),var(--navy-700));
-  color:#fff; font-family:var(--font-mono); font-size:20px; font-weight:600;
+  color:#fff; font-family:var(--font-mono); font-size:30px; font-weight:600;
 }
 .leader-info h3{ font-size:17px; color:var(--text-strong); margin-bottom:4px; }
 .leader-info .leader-role{
@@ -659,7 +659,7 @@ section{ position:relative; }
 }
 @media (max-width:480px){
   .leader-row{ flex-direction:column; }
-  .leader-photo{ width:76px; height:88px; }
+  .leader-photo{ width:120px; height:140px; font-size:24px; }
 }
 
 /* =============== parallax banner (standalone media moment) =============== */
