@@ -73,45 +73,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // "Start here" get-started modal (pricing page)
-  const startModal = document.getElementById('startModal');
-  const startTriggers = document.querySelectorAll('.tier-start[data-package]');
-  if (startModal && startTriggers.length) {
-    const startForm = document.getElementById('startForm');
-    const packageField = document.getElementById('startPackageField');
-    const packageLabel = document.getElementById('startModalPackage');
-    const closeBtn = document.getElementById('startModalClose');
+  // Shared modal open/close plumbing (focus trap in/out, Escape, backdrop
+  // click). Returns null if the overlay isn't on this page.
+  function setupModal(overlay) {
+    if (!overlay) return null;
+    const form = overlay.querySelector('form');
+    const closeBtn = overlay.querySelector('.modal-close');
     let lastFocused = null;
 
-    function openStartModal(pkg) {
-      packageField.value = pkg;
-      packageLabel.textContent = pkg;
+    function open(onOpen) {
       lastFocused = document.activeElement;
-      startModal.classList.add('is-open');
-      startModal.setAttribute('aria-hidden', 'false');
+      if (onOpen) onOpen();
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      const firstInput = startForm.querySelector('input:not([type="hidden"])');
+      const firstInput = form && form.querySelector('input:not([type="hidden"])');
       if (firstInput) firstInput.focus();
     }
-    function closeStartModal() {
-      startModal.classList.remove('is-open');
-      startModal.setAttribute('aria-hidden', 'true');
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       if (lastFocused) lastFocused.focus();
     }
 
-    startTriggers.forEach(btn => {
-      btn.addEventListener('click', () => openStartModal(btn.dataset.package));
-    });
-    closeBtn.addEventListener('click', closeStartModal);
-    startModal.addEventListener('click', (e) => {
-      if (e.target === startModal) closeStartModal();
-    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && startModal.classList.contains('is-open')) closeStartModal();
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
     });
 
-    startForm.addEventListener('submit', (e) => {
+    return { open, close, form };
+  }
+
+  // "Start here" get-started modal (pricing page tier cards)
+  const startTriggers = document.querySelectorAll('.tier-start[data-package]');
+  const startModal = setupModal(document.getElementById('startModal'));
+  if (startModal && startTriggers.length) {
+    const packageField = document.getElementById('startPackageField');
+    const packageLabel = document.getElementById('startModalPackage');
+
+    startTriggers.forEach(btn => {
+      btn.addEventListener('click', () => startModal.open(() => {
+        packageField.value = btn.dataset.package;
+        packageLabel.textContent = btn.dataset.package;
+      }));
+    });
+
+    startModal.form.addEventListener('submit', (e) => {
       e.preventDefault();
       const pkg = packageField.value;
       const name = document.getElementById('startName').value.trim();
@@ -120,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('startPhone').value.trim();
       const needs = document.getElementById('startNeeds').value.trim();
 
-      const subject = `New enquiry — ${pkg} package`;
+      const subject = `New enquiry: ${pkg} package`;
       const bodyLines = [
         `Package: ${pkg}`,
         `Name: ${name}`,
@@ -128,6 +137,38 @@ document.addEventListener('DOMContentLoaded', () => {
         `Email: ${email}`,
         phone && `Phone: ${phone}`,
         needs && `\nSpecific requirements:\n${needs}`
+      ].filter(Boolean);
+
+      window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    });
+  }
+
+  // "Book a consult" modal (nav, hero, footer and CTA buttons site-wide)
+  const consultTriggers = document.querySelectorAll('.js-open-consult');
+  const consultModal = setupModal(document.getElementById('consultModal'));
+  if (consultModal && consultTriggers.length) {
+    consultTriggers.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        consultModal.open();
+      });
+    });
+
+    consultModal.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('consultName').value.trim();
+      const company = document.getElementById('consultCompany').value.trim();
+      const email = document.getElementById('consultEmail').value.trim();
+      const phone = document.getElementById('consultPhone').value.trim();
+      const need = document.getElementById('consultNeed').value;
+
+      const subject = 'New consult request';
+      const bodyLines = [
+        `What they need: ${need}`,
+        `Name: ${name}`,
+        company && `Company: ${company}`,
+        `Email: ${email}`,
+        phone && `Phone: ${phone}`
       ].filter(Boolean);
 
       window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;

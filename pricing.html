@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — Account Caddie</title>
+<title>Pricing: Account Caddie</title>
 <meta name="description" content="Simple, transparent monthly pricing for bookkeeping, tax, payroll and CFO advisory. Billed in ZAR for South African clients, or a flat monthly rate in USD, GBP and CAD internationally.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5a8.5 8.5 0 1 1-9-11 7 7 0 0 0 9 9Z"/></svg>
       </button>
-      <a href="/#contact" class="btn btn-orange" style="padding:11px 22px;font-size:14px;">Book a consult</a>
+      <a href="/#contact" class="btn btn-orange js-open-consult" style="padding:11px 22px;font-size:14px;">Book a consult</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -52,7 +52,7 @@
   <a href="/pricing">Pricing</a>
   <a href="/#process">How it works</a>
   <a href="/#clients">Clients</a>
-  <a href="/#contact" class="btn btn-orange">Book a consult</a>
+  <a href="/#contact" class="btn btn-orange js-open-consult">Book a consult</a>
 </div>
 
 <!-- ===================== PRICING HERO ===================== -->
@@ -60,7 +60,7 @@
   <div class="container pricing-hero-inner">
     <span class="eyebrow">Pricing</span>
     <h1>Simple plans.<br>No surprise line items.</h1>
-    <p class="lede">Pick the level of support your business needs today — every plan is month-to-month, with no lock-in contract. South African clients are billed in Rand; international clients are billed a flat monthly rate in their own currency.</p>
+    <p class="lede">Pick the level of support your business needs today: every plan is month-to-month, with no lock-in contract. South African clients are billed in Rand; international clients in the US, UK and Canada are billed a flat monthly rate in their own currency.</p>
 
     <div class="currency-switch glass-dark" id="currencySwitch" role="group" aria-label="Choose display currency">
       <button class="currency-btn is-active" data-currency="ZAR" type="button">R ZAR</button>
@@ -68,7 +68,7 @@
       <button class="currency-btn" data-currency="CAD" type="button">CA$ CAD</button>
       <button class="currency-btn" data-currency="GBP" type="button">£ GBP</button>
     </div>
-    <p class="fx-note">Package pricing outside South Africa is a fixed monthly rate in that currency, set to match typical market pricing there — not a currency conversion. Add-ons and once-off items are South African statutory services (SARS/CIPC) and remain billed in ZAR.</p>
+    <p class="fx-note">Package pricing outside South Africa is a fixed monthly rate in that currency, set to match typical market pricing there, not a currency conversion. Add-ons and once-off items are South African statutory services (SARS/CIPC) and remain billed in ZAR.</p>
   </div>
 </header>
 
@@ -95,7 +95,7 @@
           </li>
           <li>
             <span class="pricing-defaults-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.2-2.4"/></svg></span>
-            <p>One flat monthly fee — no lock-in contract.</p>
+            <p>One flat monthly fee, no lock-in contract.</p>
           </li>
         </ul>
       </aside>
@@ -167,9 +167,9 @@
       <div>
         <span class="service-tag" style="color:var(--orange-500);">Enterprise</span>
         <h3 style="color:var(--white);margin-top:8px;">Multiple entities, or need a full-time CFO in your corner?</h3>
-        <p style="color:rgba(255,255,255,.72);margin-top:10px;font-size:15px;line-height:1.6;max-width:56ch;">We build a custom scope for multi-entity groups, larger payrolls, audit support and dedicated CFO advisory — priced around what your business actually needs.</p>
+        <p style="color:rgba(255,255,255,.72);margin-top:10px;font-size:15px;line-height:1.6;max-width:56ch;">We build a custom scope for multi-entity groups, larger payrolls, audit support and dedicated CFO advisory, priced around what your business actually needs.</p>
       </div>
-      <a href="/#contact" class="btn btn-orange">Let's talk</a>
+      <a href="/#contact" class="btn btn-orange js-open-consult" data-source="Enterprise">Let's talk</a>
     </div>
   </div>
 </section>
@@ -180,7 +180,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Add-ons</span>
       <h2>Pay for extra, only when you need it.</h2>
-      <p>No plan fits everyone perfectly — these add cleanly onto any package above.</p>
+      <p>No plan fits everyone perfectly, these add cleanly onto any package above.</p>
     </div>
 
     <div class="addon-table reveal">
@@ -247,9 +247,9 @@
     <div class="cta-panel glass-dark reveal" style="grid-template-columns:1fr;text-align:center;">
       <div>
         <span class="eyebrow" style="color:var(--orange-500);justify-content:center;">Still deciding?</span>
-        <h2 style="margin-top:16px;">Talk to us — we'll recommend a plan, not sell you one.</h2>
+        <h2 style="margin-top:16px;">Talk to us: we'll recommend a plan, not sell you one.</h2>
         <p class="lede" style="margin-inline:auto;">A free consult tells us exactly where your business stands, so the plan you land on actually fits.</p>
-        <a href="/#contact" class="btn btn-orange" style="margin-top:28px;">Book your consult</a>
+        <a href="/#contact" class="btn btn-orange js-open-consult" style="margin-top:28px;">Book your consult</a>
       </div>
     </div>
   </div>
@@ -263,7 +263,7 @@
         <div class="footer-brand">
           <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img logo-img-footer">
         </div>
-        <p>Bookkeeping, tax, payroll and financial advisory for growing South African businesses. A member of the New Generation Group.</p>
+        <p>Bookkeeping, tax, payroll and financial advisory for growing businesses across Africa, and internationally in the US, UK and Canada. A member of the New Generation Group.</p>
       </div>
       <div>
         <h4>Services</h4>
@@ -289,7 +289,7 @@
         <ul>
           <li><a href="mailto:info@accountcaddie.co.za">info@accountcaddie.co.za</a></li>
           <li><a href="tel:+27870876297">087 087 6297</a></li>
-          <li><a href="/#contact">Book a consult</a></li>
+          <li><a href="/#contact" class="js-open-consult">Book a consult</a></li>
         </ul>
       </div>
       <div>
@@ -320,6 +320,54 @@
   </div>
 </footer>
 
+<!-- ===================== BOOK A CONSULT MODAL ===================== -->
+<div class="modal-overlay" id="consultModal" aria-hidden="true">
+  <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
+    <button type="button" class="modal-close" id="consultModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Book a consult</span>
+    <h2 id="consultModalTitle">Let's talk about your business.</h2>
+    <p class="lede">Tell us a little about your business and where it's at. We'll come back with an honest read of your books and a plan: no obligation, no jargon, no hard sell.</p>
+
+    <form class="cta-form" id="consultForm">
+      <div class="row">
+        <div>
+          <label for="consultName">Full name</label>
+          <input id="consultName" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="consultCompany">Company</label>
+          <input id="consultCompany" type="text" placeholder="Business name">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="consultEmail">Email</label>
+          <input id="consultEmail" type="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="consultPhone">Phone</label>
+          <input id="consultPhone" type="tel" placeholder="Phone number">
+        </div>
+      </div>
+      <div>
+        <label for="consultNeed">What do you need?</label>
+        <select id="consultNeed">
+          <option>Bookkeeping</option>
+          <option>Tax &amp; SARS compliance</option>
+          <option>Payroll</option>
+          <option>Company registration</option>
+          <option>CFO &amp; financial advisory</option>
+          <option>Not sure yet, advise me</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-orange">Request my consult</button>
+      <span class="form-note">Opens your email client, addressed to info@accountcaddie.co.za. We'll reply within one business day.</span>
+    </form>
+  </div>
+</div>
+
 <!-- ===================== GET STARTED MODAL ===================== -->
 <div class="modal-overlay" id="startModal" aria-hidden="true">
   <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="startModalTitle">
@@ -328,7 +376,7 @@
     </button>
     <span class="eyebrow" style="color:var(--orange-500);">Get started</span>
     <h2 id="startModalTitle">Tell us about your business.</h2>
-    <p class="lede">You've selected the <strong id="startModalPackage">Growth</strong> package. Add your details and any specific requirements — we'll come back with next steps.</p>
+    <p class="lede">You've selected the <strong id="startModalPackage">Growth</strong> package. Add your details and any specific requirements, and we'll come back with next steps.</p>
 
     <form class="cta-form" id="startForm">
       <input type="hidden" id="startPackageField">

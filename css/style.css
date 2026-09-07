@@ -1095,6 +1095,8 @@ section{ position:relative; }
   padding:40px 44px;
   display:flex; align-items:center; justify-content:space-between; gap:32px;
   flex-wrap:wrap;
+  background:linear-gradient(160deg, var(--navy-900), var(--navy-800) 60%, var(--navy-700));
+  border-color:transparent;
 }
 
 .addons{ background:var(--surface-dim); }
