@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — Account Caddie</title>
-<meta name="description" content="Simple, transparent monthly pricing for bookkeeping, tax, payroll and CFO advisory. Billed in South African Rand, shown in ZAR, USD, CAD and GBP.">
+<meta name="description" content="Simple, transparent monthly pricing for bookkeeping, tax, payroll and CFO advisory. Billed in ZAR for South African clients, or a flat monthly rate in USD, GBP and CAD internationally.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
   <div class="container pricing-hero-inner">
     <span class="eyebrow">Pricing</span>
     <h1>Simple plans.<br>No surprise line items.</h1>
-    <p class="lede">Pick the level of support your business needs today — every plan is month-to-month, with no lock-in contract. Prices are billed in South African Rand; switch currency below just to see roughly what that is where you are.</p>
+    <p class="lede">Pick the level of support your business needs today — every plan is month-to-month, with no lock-in contract. South African clients are billed in Rand; international clients are billed a flat monthly rate in their own currency.</p>
 
     <div class="currency-switch glass-dark" id="currencySwitch" role="group" aria-label="Choose display currency">
       <button class="currency-btn is-active" data-currency="ZAR" type="button">R ZAR</button>
@@ -68,7 +68,7 @@
       <button class="currency-btn" data-currency="CAD" type="button">CA$ CAD</button>
       <button class="currency-btn" data-currency="GBP" type="button">£ GBP</button>
     </div>
-    <p class="fx-note">Billed in ZAR. Other currencies are indicative only, converted at approximate rates (updated 2026) — actual amounts may vary slightly at checkout.</p>
+    <p class="fx-note">Package pricing outside South Africa is a fixed monthly rate in that currency, set to match typical market pricing there — not a currency conversion. Add-ons and once-off items are South African statutory services (SARS/CIPC) and remain billed in ZAR.</p>
   </div>
 </header>
 
@@ -108,8 +108,8 @@
             <h3>For sole proprietors &amp; start-ups</h3>
           </div>
           <div class="tier-block tier-block-price">
-            <span class="amount" data-zar="1500">R1,500</span>
-            <span class="period">Monthly, excluding VAT</span>
+            <span class="amount" data-zar="4900" data-usd="199" data-gbp="79" data-cad="349">R4,900</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
           <a href="/#contact" class="tier-block tier-start">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -126,8 +126,8 @@
             <h3>For small, VAT-registered businesses</h3>
           </div>
           <div class="tier-block tier-block-price">
-            <span class="amount" data-zar="3500">R3,500</span>
-            <span class="period">Monthly, excluding VAT</span>
+            <span class="amount" data-zar="7600" data-usd="499" data-gbp="199" data-cad="649">R7,600</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
           <a href="/#contact" class="tier-block tier-start tier-start-featured">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -146,8 +146,8 @@
             <h3>For growing teams</h3>
           </div>
           <div class="tier-block tier-block-price">
-            <span class="amount" data-zar="6500">R6,500</span>
-            <span class="period">Monthly, excluding VAT</span>
+            <span class="amount" data-zar="19500" data-usd="999" data-gbp="399" data-cad="1249">R19,500</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
           <a href="/#contact" class="tier-block tier-start">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -231,7 +231,7 @@
       </details>
       <details class="faq-item reveal">
         <summary>Can I pay in a currency other than Rand?</summary>
-        <p>Invoicing is in South African Rand (ZAR). The currency switcher above is there to give international directors and remote founders a quick sense of cost — it isn't a checkout currency.</p>
+        <p>Yes. South African clients are invoiced in Rand. International clients are invoiced a flat monthly package fee in USD, GBP or CAD, set to typical market pricing in that currency rather than a Rand conversion. Add-ons and once-off items (CIPC registration, SARS query resolution, etc.) are South African statutory services and stay billed in ZAR regardless of your package currency.</p>
       </details>
       <details class="faq-item reveal">
         <summary>Do you work with businesses outside South Africa?</summary>
@@ -315,7 +315,7 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Account Caddie. A member of New Generation Group.</span>
-      <span>Prices billed in ZAR. Other currencies are indicative.</span>
+      <span>Packages billed in ZAR, USD, GBP or CAD. Add-ons billed in ZAR.</span>
     </div>
   </div>
 </footer>

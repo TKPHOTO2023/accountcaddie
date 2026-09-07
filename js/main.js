@@ -42,25 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // currency switcher (pricing page)
-  // Rates are ZAR per 1 unit of currency — indicative, updated 2026.
-  const FX_RATES = { ZAR: 1, USD: 18.5, GBP: 23.5, CAD: 13.5 };
+  // International package prices are fixed, real monthly rates per currency
+  // (set via data-usd/data-gbp/data-cad in pricing.html) — not a currency
+  // conversion from the ZAR price. Add-ons have no international rate and
+  // stay in ZAR regardless of the selected currency.
   const FX_SYMBOLS = { ZAR: 'R', USD: '$', GBP: '£', CAD: 'CA$' };
   const currencySwitch = document.getElementById('currencySwitch');
   const amountEls = document.querySelectorAll('.amount[data-zar]');
-
-  function formatAmount(zarValue, currency) {
-    const rate = FX_RATES[currency] || 1;
-    const converted = zarValue / rate;
-    const rounded = currency === 'ZAR'
-      ? Math.round(converted / 5) * 5   // keep ZAR figures on clean R5 increments
-      : Math.round(converted);
-    return FX_SYMBOLS[currency] + rounded.toLocaleString('en-US');
-  }
+  const periodEls = document.querySelectorAll('.period[data-zar-label]');
 
   function applyCurrency(currency) {
+    const key = currency.toLowerCase();
     amountEls.forEach(el => {
-      const zar = parseFloat(el.getAttribute('data-zar'));
-      if (!isNaN(zar)) el.textContent = formatAmount(zar, currency);
+      const raw = currency === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      if (!raw) return;
+      el.textContent = FX_SYMBOLS[currency] + Number(raw).toLocaleString('en-US');
+    });
+    periodEls.forEach(el => {
+      el.textContent = currency === 'ZAR' ? el.dataset.zarLabel : el.dataset.intlLabel;
     });
   }
 
