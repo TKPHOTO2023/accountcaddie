@@ -628,11 +628,11 @@ section{ position:relative; }
   border-radius:var(--radius-lg);
   background:var(--card-bg);
   border:1px solid var(--card-border-strong);
-  margin-bottom:56px;
 }
 .leader-featured .leader-info h3{ font-size:26px; }
 .leader-featured .leader-info .leader-role{ font-size:15px; }
 .leader-featured .leader-info p{ font-size:15.5px; max-width:62ch; }
+.leader-featured .leader-info p + p{ margin-top:14px; }
 .leader-photo-featured{
   width:210px; height:245px;
 }
@@ -641,27 +641,6 @@ section{ position:relative; }
   .leader-photo-featured{ width:170px; height:198px; }
 }
 
-.leadership-group + .leadership-group{ margin-top:56px; }
-.leadership-label{
-  font-family:var(--font-body); font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--text-muted);
-  padding-bottom:18px;
-  margin-bottom:40px;
-  border-bottom:1px solid var(--card-border-strong);
-}
-.leader-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  column-gap:48px;
-  row-gap:44px;
-}
-.leader-row{
-  display:flex;
-  gap:20px;
-  opacity:0; transform:translateY(20px);
-  transition:opacity .6s var(--ease), transform .6s var(--ease);
-}
-.leader-row.is-visible{ opacity:1; transform:translateY(0); }
 .leader-photo{
   flex:none;
   width:150px; height:175px;
@@ -682,13 +661,6 @@ section{ position:relative; }
   color:var(--orange-600); margin-bottom:10px;
 }
 .leader-info p{ font-size:14px; line-height:1.65; color:var(--text-muted); }
-@media (max-width:860px){
-  .leader-grid{ grid-template-columns:1fr; row-gap:32px; }
-}
-@media (max-width:480px){
-  .leader-row{ flex-direction:column; }
-  .leader-photo{ width:120px; height:140px; font-size:24px; }
-}
 
 /* =============== parallax banner (standalone media moment) =============== */
 .parallax-banner{

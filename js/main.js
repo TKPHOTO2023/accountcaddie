@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal, .service-card, .step, .tier-card, .faq-item, .leader-row');
+  const revealEls = document.querySelectorAll('.reveal, .service-card, .step, .tier-card, .faq-item');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
