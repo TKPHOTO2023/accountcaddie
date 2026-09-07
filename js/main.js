@@ -73,6 +73,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // "Start here" get-started modal (pricing page)
+  const startModal = document.getElementById('startModal');
+  const startTriggers = document.querySelectorAll('.tier-start[data-package]');
+  if (startModal && startTriggers.length) {
+    const startForm = document.getElementById('startForm');
+    const packageField = document.getElementById('startPackageField');
+    const packageLabel = document.getElementById('startModalPackage');
+    const closeBtn = document.getElementById('startModalClose');
+    let lastFocused = null;
+
+    function openStartModal(pkg) {
+      packageField.value = pkg;
+      packageLabel.textContent = pkg;
+      lastFocused = document.activeElement;
+      startModal.classList.add('is-open');
+      startModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstInput = startForm.querySelector('input:not([type="hidden"])');
+      if (firstInput) firstInput.focus();
+    }
+    function closeStartModal() {
+      startModal.classList.remove('is-open');
+      startModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    startTriggers.forEach(btn => {
+      btn.addEventListener('click', () => openStartModal(btn.dataset.package));
+    });
+    closeBtn.addEventListener('click', closeStartModal);
+    startModal.addEventListener('click', (e) => {
+      if (e.target === startModal) closeStartModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && startModal.classList.contains('is-open')) closeStartModal();
+    });
+
+    startForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pkg = packageField.value;
+      const name = document.getElementById('startName').value.trim();
+      const company = document.getElementById('startCompany').value.trim();
+      const email = document.getElementById('startEmail').value.trim();
+      const phone = document.getElementById('startPhone').value.trim();
+      const needs = document.getElementById('startNeeds').value.trim();
+
+      const subject = `New enquiry — ${pkg} package`;
+      const bodyLines = [
+        `Package: ${pkg}`,
+        `Name: ${name}`,
+        company && `Company: ${company}`,
+        `Email: ${email}`,
+        phone && `Phone: ${phone}`,
+        needs && `\nSpecific requirements:\n${needs}`
+      ].filter(Boolean);
+
+      window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    });
+  }
+
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal, .service-card, .step, .tier-stack, .faq-item');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

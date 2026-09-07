@@ -111,9 +111,9 @@
             <span class="amount" data-zar="4900" data-usd="199" data-gbp="79" data-cad="349">R4,900</span>
             <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
-          <a href="/#contact" class="tier-block tier-start">Start here
+          <button type="button" class="tier-block tier-start" data-package="Starter">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All default inclusions</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Up to 30 transactions per month</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Email support, 3-day turnaround</span></div>
@@ -129,9 +129,9 @@
             <span class="amount" data-zar="7600" data-usd="499" data-gbp="199" data-cad="649">R7,600</span>
             <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
-          <a href="/#contact" class="tier-block tier-start tier-start-featured">Start here
+          <button type="button" class="tier-block tier-start tier-start-featured" data-package="Growth">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All Starter inclusions</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Bi-monthly VAT201 submissions</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Payroll for up to 5 employees</span></div>
@@ -149,9 +149,9 @@
             <span class="amount" data-zar="19500" data-usd="999" data-gbp="399" data-cad="1249">R19,500</span>
             <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
           </div>
-          <a href="/#contact" class="tier-block tier-start">Start here
+          <button type="button" class="tier-block tier-start" data-package="Established">Start here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All Growth inclusions</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Payroll for up to 20 employees</span></div>
           <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Quarterly review with your accountant</span></div>
@@ -319,6 +319,48 @@
     </div>
   </div>
 </footer>
+
+<!-- ===================== GET STARTED MODAL ===================== -->
+<div class="modal-overlay" id="startModal" aria-hidden="true">
+  <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="startModalTitle">
+    <button type="button" class="modal-close" id="startModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Get started</span>
+    <h2 id="startModalTitle">Tell us about your business.</h2>
+    <p class="lede">You've selected the <strong id="startModalPackage">Growth</strong> package. Add your details and any specific requirements — we'll come back with next steps.</p>
+
+    <form class="cta-form" id="startForm">
+      <input type="hidden" id="startPackageField">
+      <div class="row">
+        <div>
+          <label for="startName">Full name</label>
+          <input id="startName" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="startCompany">Company</label>
+          <input id="startCompany" type="text" placeholder="Business name">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="startEmail">Email</label>
+          <input id="startEmail" type="email" placeholder="you@company.co.za" required>
+        </div>
+        <div>
+          <label for="startPhone">Phone</label>
+          <input id="startPhone" type="tel" placeholder="082 000 0000">
+        </div>
+      </div>
+      <div>
+        <label for="startNeeds">Specific requirements</label>
+        <textarea id="startNeeds" rows="4" placeholder="Transaction volume, number of employees, current software, anything else we should know."></textarea>
+      </div>
+      <button type="submit" class="btn btn-orange">Send enquiry</button>
+      <span class="form-note">Opens your email client, addressed to info@accountcaddie.co.za. We'll reply within one business day.</span>
+    </form>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
