@@ -619,6 +619,28 @@ section{ position:relative; }
 }
 
 .leadership{ background:var(--surface); }
+
+.leader-featured{
+  display:flex;
+  gap:36px;
+  align-items:center;
+  padding:36px;
+  border-radius:var(--radius-lg);
+  background:var(--card-bg);
+  border:1px solid var(--card-border-strong);
+  margin-bottom:56px;
+}
+.leader-featured .leader-info h3{ font-size:26px; }
+.leader-featured .leader-info .leader-role{ font-size:15px; }
+.leader-featured .leader-info p{ font-size:15.5px; max-width:62ch; }
+.leader-photo-featured{
+  width:210px; height:245px;
+}
+@media (max-width:640px){
+  .leader-featured{ flex-direction:column; align-items:flex-start; padding:26px; }
+  .leader-photo-featured{ width:170px; height:198px; }
+}
+
 .leadership-group + .leadership-group{ margin-top:56px; }
 .leadership-label{
   font-family:var(--font-body); font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
