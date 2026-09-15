@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const currencySwitch = document.getElementById('currencySwitch');
   const amountEls = document.querySelectorAll('.amount[data-zar]');
   const periodEls = document.querySelectorAll('.period[data-zar-label]');
+  // Package inclusions that name a specific tax authority/form (SARS,
+  // CIPC, VAT201...) swap to the equivalent term for the selected
+  // country, so the wording matches the country whose currency is shown.
+  const termEls = document.querySelectorAll('.i18n-term[data-zar]');
 
   function applyCurrency(currency) {
     const key = currency.toLowerCase();
@@ -60,6 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     periodEls.forEach(el => {
       el.textContent = currency === 'ZAR' ? el.dataset.zarLabel : el.dataset.intlLabel;
+    });
+    termEls.forEach(el => {
+      const text = currency === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      if (text) el.textContent = text;
     });
   }
 
