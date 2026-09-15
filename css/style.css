@@ -1099,6 +1099,46 @@ section{ position:relative; }
   border-color:transparent;
 }
 
+.terms{ background:var(--surface-dim); }
+.terms-note{
+  margin-top:-8px; margin-bottom:32px;
+  font-size:14px; line-height:1.6; color:var(--text-muted);
+  max-width:70ch;
+}
+.terms-table-wrap{
+  overflow-x:auto;
+  border-radius:var(--radius-md);
+  border:1px solid var(--card-border-strong);
+  -webkit-overflow-scrolling:touch;
+}
+table.terms-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:640px;
+  background:var(--card-bg);
+}
+.terms-table caption{ display:none; }
+.terms-table th, .terms-table td{
+  padding:16px 22px;
+  text-align:left;
+  font-size:14px;
+  border-bottom:1px solid var(--card-border-strong);
+}
+.terms-table thead th{
+  font-family:var(--font-body); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+  font-weight:700; color:var(--text-muted);
+  background:transparent;
+}
+.terms-table tbody th{
+  font-weight:600; color:var(--text-strong);
+  white-space:nowrap;
+}
+.terms-table td{ color:var(--text-ink); }
+.terms-table tbody tr:last-child th, .terms-table tbody tr:last-child td{ border-bottom:none; }
+.terms-footnote{
+  margin-top:18px; font-size:13px; line-height:1.6; color:var(--text-muted);
+}
+
 .addons{ background:var(--surface-dim); }
 .addon-table{
   border-radius:var(--radius-md);
