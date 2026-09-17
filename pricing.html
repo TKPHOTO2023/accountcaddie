@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — Account Caddie</title>
-<meta name="description" content="Simple, transparent monthly pricing for bookkeeping, tax, payroll and CFO advisory. Billed in South African Rand, shown in ZAR, USD, CAD and GBP.">
+<title>Pricing: Account Caddie</title>
+<meta name="description" content="Simple, transparent monthly pricing for bookkeeping, tax, payroll and CFO advisory. Billed in ZAR for South African clients, or a flat monthly rate in USD, GBP and CAD internationally.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23f5831f'/%3E%3Cpath d='M6 15l4-4 3 3 5-6' fill='none' stroke='%230d1527' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 <script>
   (function(){
     var saved = localStorage.getItem('ac-theme');
@@ -23,23 +25,23 @@
 <!-- ===================== NAV ===================== -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner glass-dark">
-    <a href="index.html" class="nav-brand">
-      <svg class="mark" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#f5831f"/><path d="M6 15l4-4 3 3 5-6" stroke="#0d1527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      Account&nbsp;Caddie
+    <a href="/" class="nav-brand">
+      <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img">
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="pricing.html" aria-current="page" style="opacity:1;">Pricing</a></li>
-      <li><a href="index.html#process">How it works</a></li>
-      <li><a href="index.html#group">The Group</a></li>
-      <li><a href="index.html#clients">Clients</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/pricing" aria-current="page" style="opacity:1;">Pricing</a></li>
+      <li><a href="/#process">How it works</a></li>
+      <li><a href="/#clients">Reviews</a></li>
     </ul>
     <div class="nav-cta">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5a8.5 8.5 0 1 1-9-11 7 7 0 0 0 9 9Z"/></svg>
       </button>
-      <a href="index.html#contact" class="btn btn-orange" style="padding:11px 22px;font-size:14px;">Book a consult</a>
+      <a href="/#contact" class="btn btn-orange js-open-consult" style="padding:11px 22px;font-size:14px;">Book a consult</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -48,20 +50,26 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#services">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="index.html#process">How it works</a>
-  <a href="index.html#group">The Group</a>
-  <a href="index.html#clients">Clients</a>
-  <a href="index.html#contact" class="btn btn-orange">Book a consult</a>
+  <a href="/">Home</a>
+  <a href="/#services">Services</a>
+  <a href="/about">About</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/#process">How it works</a>
+  <a href="/#clients">Reviews</a>
+  <a href="/#contact" class="btn btn-orange js-open-consult">Book a consult</a>
 </div>
 
 <!-- ===================== PRICING HERO ===================== -->
 <header class="hero pricing-hero" id="top">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/pricing-hero-poster.jpg">
+      <source src="assets/video/pricing-hero-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="container pricing-hero-inner">
     <span class="eyebrow">Pricing</span>
     <h1>Simple plans.<br>No surprise line items.</h1>
-    <p class="lede">Pick the level of support your business needs today — every plan is month-to-month, with no lock-in contract. Prices are billed in South African Rand; switch currency below just to see roughly what that is where you are.</p>
+    <p class="lede">Pick the level of support your business needs today: every plan is month-to-month, with no lock-in contract. South African clients are billed in Rand; international clients in the US, UK and Canada are billed a flat monthly rate in their own currency.</p>
 
     <div class="currency-switch glass-dark" id="currencySwitch" role="group" aria-label="Choose display currency">
       <button class="currency-btn is-active" data-currency="ZAR" type="button">R ZAR</button>
@@ -69,86 +77,192 @@
       <button class="currency-btn" data-currency="CAD" type="button">CA$ CAD</button>
       <button class="currency-btn" data-currency="GBP" type="button">£ GBP</button>
     </div>
-    <p class="fx-note">Billed in ZAR. Other currencies are indicative only, converted at approximate rates (updated 2026) — actual amounts may vary slightly at checkout.</p>
+    <p class="fx-note">Package pricing outside South Africa is a fixed monthly rate in that currency, set to match typical market pricing there, not a currency conversion. Add-ons and once-off items are South African statutory services (SARS/CIPC) and remain billed in ZAR.</p>
   </div>
 </header>
+
+<!-- ===================== TAX TERMS, TRANSLATED ===================== -->
+<section class="terms section-pad" id="terms">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">For our international clients</span>
+      <h2>SARS terms, translated.</h2>
+      <p>Our compliance work centres on South African SARS and CIPC filings, so if you're used to the IRS or the CRA, some of that vocabulary below will look unfamiliar. Here's how it lines up.</p>
+    </div>
+
+    <p class="terms-note">Our team includes accountants experienced with IRS (USA) and CRA (Canada) filing requirements alongside our South African SARS/CIPC work, so international clients get support in terms they recognise. This table is a general reference, not a substitute for advice on your specific filing situation.</p>
+
+    <div class="terms-table-wrap reveal">
+      <table class="terms-table">
+        <caption>Tax terminology compared across South Africa, the USA and Canada</caption>
+        <thead>
+          <tr>
+            <th scope="col">Concept</th>
+            <th scope="col">South Africa (SARS)</th>
+            <th scope="col">USA (IRS)</th>
+            <th scope="col">Canada (CRA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tax return</th>
+            <td>ITR12 (individuals) / ITR14 (companies)</td>
+            <td>Form 1040</td>
+            <td>T1 General</td>
+          </tr>
+          <tr>
+            <th scope="row">Tax year</th>
+            <td>1 March to end of February</td>
+            <td>1 January to 31 December</td>
+            <td>1 January to 31 December</td>
+          </tr>
+          <tr>
+            <th scope="row">Filing deadline</th>
+            <td>Varies by taxpayer type</td>
+            <td>15 April</td>
+            <td>30 April (self-employed: 15 June)</td>
+          </tr>
+          <tr>
+            <th scope="row">Tax authority</th>
+            <td>SARS</td>
+            <td>IRS</td>
+            <td>CRA</td>
+          </tr>
+          <tr>
+            <th scope="row">Employment income slip</th>
+            <td>IRP5</td>
+            <td>W-2</td>
+            <td>T4</td>
+          </tr>
+          <tr>
+            <th scope="row">Other income slip</th>
+            <td>IT3 certificate</td>
+            <td>1099</td>
+            <td>T4A / T5</td>
+          </tr>
+          <tr>
+            <th scope="row">Assessment notice</th>
+            <td>ITA34</td>
+            <td>No separate notice, just refund/bill</td>
+            <td>Notice of Assessment (NOA)</td>
+          </tr>
+          <tr>
+            <th scope="row">Online filing system</th>
+            <td>SARS eFiling</td>
+            <td>IRS e-file</td>
+            <td>NETFILE / EFILE</td>
+          </tr>
+          <tr>
+            <th scope="row">Withholding on salary</th>
+            <td>PAYE</td>
+            <td>Federal / state withholding</td>
+            <td>Payroll withholding</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="terms-footnote">Most US states also levy their own state income tax (a few, like Texas and Florida, don't), so some taxpayers file two returns a year. South Africa and Canada have no equivalent state/provincial income tax return.</p>
+  </div>
+</section>
 
 <!-- ===================== PRICING TIERS ===================== -->
 <section class="tiers section-pad" id="tiers">
   <div class="container">
-    <div class="tier-grid">
+    <div class="pricing-layout">
 
-      <div class="tier-card reveal">
-        <div class="tier-top">
-          <span class="service-tag">Starter</span>
-          <h3>For sole proprietors &amp; start-ups</h3>
-        </div>
-        <div class="tier-price">
-          <span class="amount" data-zar="1500">R1,500</span>
-          <span class="period">/ month</span>
-        </div>
-        <p class="tier-desc">Everything you need to keep clean books and stay compliant from day one.</p>
-        <ul class="tier-features">
-          <li>Monthly bookkeeping (up to 30 transactions)</li>
-          <li>Annual income tax return</li>
-          <li>SARS eFiling management</li>
-          <li>Email support, 3-day turnaround</li>
+      <aside class="pricing-sidebar reveal">
+        <h2>One fee.<br>All included.</h2>
+        <span class="pricing-sidebar-label">Default inclusions</span>
+        <ul class="pricing-defaults">
+          <li>
+            <span class="pricing-defaults-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v5h5M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg></span>
+            <p>Monthly bookkeeping and reporting, on every plan.</p>
+          </li>
+          <li>
+            <span class="pricing-defaults-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3Z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <p class="i18n-term" data-zar="Annual income tax return &amp; SARS eFiling management." data-usd="Annual income tax return &amp; IRS e-file management." data-cad="Annual income tax return &amp; CRA NETFILE management." data-gbp="Annual income tax return &amp; HMRC online filing management.">Annual income tax return &amp; SARS eFiling management.</p>
+          </li>
+          <li>
+            <span class="pricing-defaults-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5Z"/></svg></span>
+            <p>Direct support from your bookkeeping &amp; accounts team.</p>
+          </li>
+          <li>
+            <span class="pricing-defaults-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.2-2.4"/></svg></span>
+            <p>One flat monthly fee, no lock-in contract.</p>
+          </li>
         </ul>
-        <a href="index.html#contact" class="btn btn-ghost-light tier-cta">Get started</a>
-      </div>
+      </aside>
 
-      <div class="tier-card tier-featured reveal">
-        <span class="tier-badge">Most popular</span>
-        <div class="tier-top">
-          <span class="service-tag">Growth</span>
-          <h3>For small, VAT-registered businesses</h3>
-        </div>
-        <div class="tier-price">
-          <span class="amount" data-zar="3500">R3,500</span>
-          <span class="period">/ month</span>
-        </div>
-        <p class="tier-desc">Full monthly bookkeeping plus VAT, payroll and provisional tax, handled end to end.</p>
-        <ul class="tier-features">
-          <li>Everything in Starter</li>
-          <li>Bi-monthly VAT201 submissions</li>
-          <li>Payroll for up to 5 employees</li>
-          <li>Bi-annual provisional tax</li>
-          <li>Monthly management accounts</li>
-          <li>Priority support, 48-hour turnaround</li>
-        </ul>
-        <a href="index.html#contact" class="btn btn-orange tier-cta">Get started</a>
-      </div>
+      <div class="tier-grid">
 
-      <div class="tier-card reveal">
-        <div class="tier-top">
-          <span class="service-tag">Established</span>
-          <h3>For growing teams</h3>
+        <div class="tier-stack reveal">
+          <div class="tier-block tier-block-head">
+            <span class="service-tag">Starter</span>
+            <h3>For sole proprietors &amp; start-ups</h3>
+          </div>
+          <div class="tier-block tier-block-price">
+            <span class="amount" data-zar="4900" data-usd="199" data-gbp="79" data-cad="349">R4,900</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
+          </div>
+          <button type="button" class="tier-block tier-start" data-package="Starter">Start here
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All default inclusions</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Up to 30 transactions per month</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Email support, 3-day turnaround</span></div>
         </div>
-        <div class="tier-price">
-          <span class="amount" data-zar="6500">R6,500</span>
-          <span class="period">/ month</span>
-        </div>
-        <p class="tier-desc">A dedicated account manager and light CFO support for businesses scaling their team.</p>
-        <ul class="tier-features">
-          <li>Everything in Growth</li>
-          <li>Payroll for up to 20 employees</li>
-          <li>Quarterly review with your accountant</li>
-          <li>CIPC annual return filing</li>
-          <li>2 hours / month CFO advisory</li>
-          <li>Dedicated account manager</li>
-        </ul>
-        <a href="index.html#contact" class="btn btn-ghost-light tier-cta">Get started</a>
-      </div>
 
+        <div class="tier-stack tier-stack-featured reveal">
+          <span class="tier-badge">Most popular</span>
+          <div class="tier-block tier-block-head">
+            <span class="service-tag">Growth</span>
+            <h3 class="i18n-term" data-zar="For small, VAT-registered businesses" data-usd="For small businesses with sales tax obligations" data-cad="For small, GST/HST-registered businesses" data-gbp="For small, VAT-registered businesses">For small, VAT-registered businesses</h3>
+          </div>
+          <div class="tier-block tier-block-price">
+            <span class="amount" data-zar="7600" data-usd="499" data-gbp="199" data-cad="649">R7,600</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
+          </div>
+          <button type="button" class="tier-block tier-start tier-start-featured" data-package="Growth">Start here
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All Starter inclusions</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="i18n-term" data-zar="Bi-monthly VAT201 submissions" data-usd="Quarterly sales tax filings, where applicable" data-cad="Bi-monthly GST/HST filings" data-gbp="Bi-monthly VAT return filings">Bi-monthly VAT201 submissions</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Payroll for up to 5 employees</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="i18n-term" data-zar="Bi-annual provisional tax" data-usd="Quarterly estimated tax payments" data-cad="Quarterly tax instalment payments" data-gbp="Bi-annual payments on account">Bi-annual provisional tax</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Monthly management accounts</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Priority support, 48-hour turnaround</span></div>
+        </div>
+
+        <div class="tier-stack reveal">
+          <div class="tier-block tier-block-head">
+            <span class="service-tag">Established</span>
+            <h3>For growing teams</h3>
+          </div>
+          <div class="tier-block tier-block-price">
+            <span class="amount" data-zar="19500" data-usd="999" data-gbp="399" data-cad="1249">R19,500</span>
+            <span class="period" data-zar-label="Monthly, excluding VAT" data-intl-label="Monthly">Monthly, excluding VAT</span>
+          </div>
+          <button type="button" class="tier-block tier-start" data-package="Established">Start here
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>All Growth inclusions</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Payroll for up to 20 employees</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Quarterly review with your accountant</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="i18n-term" data-zar="CIPC annual return filing" data-usd="Annual state/registered agent filing" data-cad="Annual corporate return filing" data-gbp="Companies House confirmation statement filing">CIPC annual return filing</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>2 hours / month CFO advisory</span></div>
+          <div class="tier-block tier-block-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Dedicated account manager</span></div>
+        </div>
+
+      </div>
     </div>
 
     <div class="tier-enterprise glass-dark reveal">
       <div>
         <span class="service-tag" style="color:var(--orange-500);">Enterprise</span>
         <h3 style="color:var(--white);margin-top:8px;">Multiple entities, or need a full-time CFO in your corner?</h3>
-        <p style="color:rgba(255,255,255,.72);margin-top:10px;font-size:15px;line-height:1.6;max-width:56ch;">We build a custom scope for multi-entity groups, larger payrolls, audit support and dedicated CFO advisory — priced around what your business actually needs.</p>
+        <p style="color:rgba(255,255,255,.72);margin-top:10px;font-size:15px;line-height:1.6;max-width:56ch;">We build a custom scope for multi-entity groups, larger payrolls, audit support and dedicated CFO advisory, priced around what your business actually needs.</p>
       </div>
-      <a href="index.html#contact" class="btn btn-orange">Let's talk</a>
+      <a href="/#contact" class="btn btn-orange js-open-consult" data-source="Enterprise">Let's talk</a>
     </div>
   </div>
 </section>
@@ -159,7 +273,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Add-ons</span>
       <h2>Pay for extra, only when you need it.</h2>
-      <p>No plan fits everyone perfectly — these add cleanly onto any package above.</p>
+      <p>No plan fits everyone perfectly, these add cleanly onto any package above.</p>
     </div>
 
     <div class="addon-table reveal">
@@ -210,11 +324,11 @@
       </details>
       <details class="faq-item reveal">
         <summary>Can I pay in a currency other than Rand?</summary>
-        <p>Invoicing is in South African Rand (ZAR). The currency switcher above is there to give international directors and remote founders a quick sense of cost — it isn't a checkout currency.</p>
+        <p>Yes. South African clients are invoiced in Rand. International clients are invoiced a flat monthly package fee in USD, GBP or CAD, set to typical market pricing in that currency rather than a Rand conversion. Add-ons and once-off items (CIPC registration, SARS query resolution, etc.) are South African statutory services and stay billed in ZAR regardless of your package currency.</p>
       </details>
       <details class="faq-item reveal">
         <summary>Do you work with businesses outside South Africa?</summary>
-        <p>Our compliance work (SARS, CIPC) is built for South African-registered entities. We do support South African subsidiaries of overseas businesses.</p>
+        <p>Yes. Alongside our South African SARS/CIPC work, our team includes accountants experienced with IRS (USA) and CRA (Canada) filing requirements, and we support South African subsidiaries of overseas businesses too.</p>
       </details>
     </div>
   </div>
@@ -226,9 +340,9 @@
     <div class="cta-panel glass-dark reveal" style="grid-template-columns:1fr;text-align:center;">
       <div>
         <span class="eyebrow" style="color:var(--orange-500);justify-content:center;">Still deciding?</span>
-        <h2 style="margin-top:16px;">Talk to us — we'll recommend a plan, not sell you one.</h2>
+        <h2 style="margin-top:16px;">Talk to us: we'll recommend a plan, not sell you one.</h2>
         <p class="lede" style="margin-inline:auto;">A free consult tells us exactly where your business stands, so the plan you land on actually fits.</p>
-        <a href="index.html#contact" class="btn btn-orange" style="margin-top:28px;">Book your consult</a>
+        <a href="/#contact" class="btn btn-orange js-open-consult" style="margin-top:28px;">Book your consult</a>
       </div>
     </div>
   </div>
@@ -240,27 +354,27 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <svg class="mark" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#f5831f"/><path d="M6 15l4-4 3 3 5-6" stroke="#0d1527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          Account Caddie
+          <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img logo-img-footer">
         </div>
-        <p>Bookkeeping, tax, payroll and financial advisory for growing South African businesses. A member of the New Generation Group.</p>
+        <p>Bookkeeping, tax, payroll and financial advisory for growing businesses across Africa, and internationally in the US, UK and Canada. A member of the New Generation Group.</p>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="index.html#services">Bookkeeping</a></li>
-          <li><a href="index.html#services">Tax &amp; SARS</a></li>
-          <li><a href="index.html#services">Payroll</a></li>
-          <li><a href="index.html#services">CFO advisory</a></li>
+          <li><a href="/#services">Accounting &amp; Reporting</a></li>
+          <li><a href="/#services">Tax Services</a></li>
+          <li><a href="/#services">Payroll Assistance</a></li>
+          <li><a href="/#services">Strategic Services</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="index.html#process">How it works</a></li>
-          <li><a href="index.html#group">New Generation Group</a></li>
-          <li><a href="index.html#clients">Client stories</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/#process">How it works</a></li>
+          <li><a href="/#group">New Generation Group</a></li>
+          <li><a href="/#clients">Client stories</a></li>
         </ul>
       </div>
       <div>
@@ -268,17 +382,163 @@
         <ul>
           <li><a href="mailto:info@accountcaddie.co.za">info@accountcaddie.co.za</a></li>
           <li><a href="tel:+27870876297">087 087 6297</a></li>
-          <li><a href="index.html#contact">Book a consult</a></li>
+          <li><a href="/#contact" class="js-open-consult">Book a consult</a></li>
         </ul>
+      </div>
+      <div>
+        <h4>Authorised partner</h4>
+        <a href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=22d5d5bde9462c6acdb78f4a5122976e" target="_blank" rel="noopener" class="footer-partner-badge">
+          <img src="assets/images/badges/zoho-authorized-partner.png" alt="Zoho Authorized Partner">
+        </a>
+        <div class="footer-social">
+          <a href="https://x.com/AccountCaddie" target="_blank" rel="noopener" aria-label="Account Caddie on X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.68 10.62 20.5 3h-1.62l-5.92 6.62L8.4 3H3l7.15 9.6L3 21h1.62l6.24-6.98L15.6 21H21l-7.32-10.38Zm-2.2 2.46-.72-1-5.6-7.66h2.1l4.5 6.15.72 1 5.85 8h-2.1l-4.75-6.49Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.1c0-.89.25-1.5 1.52-1.5h1.63V3.86A22 22 0 0 0 14 3.7c-2.3 0-3.87 1.4-3.87 3.98v2.34H7.5v3.08h2.63V21h3.37Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3.75a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.5 20h-3.37v-6.02c0-1.43-.03-3.27-2-3.27-2 0-2.31 1.56-2.31 3.17V20H9.44V8.5h3.24v1.57h.05c.45-.85 1.55-1.75 3.19-1.75 3.41 0 4.04 2.25 4.04 5.17V20Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Account Caddie. A member of New Generation Group.</span>
-      <span>Prices billed in ZAR. Other currencies are indicative.</span>
+      <span>Packages billed in ZAR, USD, GBP or CAD. Add-ons billed in ZAR.</span>
+      <button type="button" class="region-badge js-open-region">
+        <span class="region-badge-flag">🇿🇦</span>
+        <span class="region-badge-name">South Africa</span>
+        <span class="region-badge-change">Change</span>
+      </button>
     </div>
   </div>
 </footer>
 
+<!-- ===================== BOOK A CONSULT MODAL ===================== -->
+<!-- ===================== REGION / COUNTRY MODAL ===================== -->
+<div class="modal-overlay" id="regionModal" aria-hidden="true">
+  <div class="modal-panel glass-dark region-modal-panel" role="dialog" aria-modal="true" aria-labelledby="regionModalTitle">
+    <button type="button" class="modal-close" id="regionModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Welcome</span>
+    <h2 id="regionModalTitle">Where are you browsing from?</h2>
+    <p class="lede">We'll match the pricing and terminology to your country, SARS and VAT for South Africa, IRS for the US, CRA for Canada, HMRC for the UK. Change this anytime from the footer.</p>
+    <div class="region-grid">
+      <button type="button" class="region-option" data-region="ZAR">
+        <span class="region-flag">🇿🇦</span>
+        <span class="region-name">South Africa</span>
+      </button>
+      <button type="button" class="region-option" data-region="USD">
+        <span class="region-flag">🇺🇸</span>
+        <span class="region-name">United States</span>
+      </button>
+      <button type="button" class="region-option" data-region="CAD">
+        <span class="region-flag">🇨🇦</span>
+        <span class="region-name">Canada</span>
+      </button>
+      <button type="button" class="region-option" data-region="GBP">
+        <span class="region-flag">🇬🇧</span>
+        <span class="region-name">United Kingdom</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="consultModal" aria-hidden="true">
+  <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
+    <button type="button" class="modal-close" id="consultModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Book a consult</span>
+    <h2 id="consultModalTitle">Let's talk about your business.</h2>
+    <p class="lede">Tell us a little about your business and where it's at. We'll come back with an honest read of your books and a plan: no obligation, no jargon, no hard sell.</p>
+
+    <form class="cta-form" id="consultForm">
+      <div class="row">
+        <div>
+          <label for="consultName">Full name</label>
+          <input id="consultName" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="consultCompany">Company</label>
+          <input id="consultCompany" type="text" placeholder="Business name">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="consultEmail">Email</label>
+          <input id="consultEmail" type="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="consultPhone">Phone</label>
+          <input id="consultPhone" type="tel" placeholder="Phone number">
+        </div>
+      </div>
+      <div>
+        <label for="consultNeed">What do you need?</label>
+        <select id="consultNeed">
+          <option>Bookkeeping</option>
+          <option class="i18n-term" data-zar="Tax &amp; SARS compliance" data-usd="Tax &amp; IRS compliance" data-cad="Tax &amp; CRA compliance" data-gbp="Tax &amp; HMRC compliance">Tax &amp; SARS compliance</option>
+          <option>Payroll</option>
+          <option>Company registration</option>
+          <option>CFO &amp; financial advisory</option>
+          <option>Not sure yet, advise me</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-orange">Request my consult</button>
+      <span class="form-note">Opens your email client, addressed to info@accountcaddie.co.za. We'll reply within one business day.</span>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== GET STARTED MODAL ===================== -->
+<div class="modal-overlay" id="startModal" aria-hidden="true">
+  <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="startModalTitle">
+    <button type="button" class="modal-close" id="startModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Get started</span>
+    <h2 id="startModalTitle">Tell us about your business.</h2>
+    <p class="lede">You've selected the <strong id="startModalPackage">Growth</strong> package. Add your details and any specific requirements, and we'll come back with next steps.</p>
+
+    <form class="cta-form" id="startForm">
+      <input type="hidden" id="startPackageField">
+      <div class="row">
+        <div>
+          <label for="startName">Full name</label>
+          <input id="startName" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="startCompany">Company</label>
+          <input id="startCompany" type="text" placeholder="Business name">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="startEmail">Email</label>
+          <input id="startEmail" type="email" placeholder="you@company.co.za" required>
+        </div>
+        <div>
+          <label for="startPhone">Phone</label>
+          <input id="startPhone" type="tel" placeholder="082 000 0000">
+        </div>
+      </div>
+      <div>
+        <label for="startNeeds">Specific requirements</label>
+        <textarea id="startNeeds" rows="4" placeholder="Transaction volume, number of employees, current software, anything else we should know."></textarea>
+      </div>
+      <button type="submit" class="btn btn-orange">Send enquiry</button>
+      <span class="form-note">Opens your email client, addressed to info@accountcaddie.co.za. We'll reply within one business day.</span>
+    </form>
+  </div>
+</div>
+
 <script src="js/main.js"></script>
+<script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq580dc932eb302b1787ac99d1f4283765d5a769daaa31c27d27d7def2577c8518" defer></script>
 </body>
 </html>

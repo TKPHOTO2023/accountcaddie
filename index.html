@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Account Caddie — Clear Numbers. Confident Business.</title>
-<meta name="description" content="Account Caddie is a South African bookkeeping, tax, payroll and CFO advisory partner for growing businesses. A member of the New Generation Group.">
+<title>Account Caddie: Clear Numbers, Confident Business.</title>
+<meta name="description" content="Account Caddie is an Africa-based bookkeeping, tax, payroll and CFO advisory partner for growing businesses, serving South Africa and international clients in the US, UK and Canada. A member of the New Generation Group.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23f5831f'/%3E%3Cpath d='M6 15l4-4 3 3 5-6' fill='none' stroke='%230d1527' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 <script>
   (function(){
     var saved = localStorage.getItem('ac-theme');
@@ -24,22 +26,22 @@
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner glass-dark">
     <a href="#top" class="nav-brand">
-      <svg class="mark" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#f5831f"/><path d="M6 15l4-4 3 3 5-6" stroke="#0d1527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      Account&nbsp;Caddie
+      <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img">
     </a>
     <ul class="nav-links">
+      <li><a href="#top" aria-current="page" style="opacity:1;">Home</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/pricing">Pricing</a></li>
       <li><a href="#process">How it works</a></li>
-      <li><a href="#group">The Group</a></li>
-      <li><a href="#clients">Clients</a></li>
+      <li><a href="#clients">Reviews</a></li>
     </ul>
     <div class="nav-cta">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5a8.5 8.5 0 1 1-9-11 7 7 0 0 0 9 9Z"/></svg>
       </button>
-      <a href="#contact" class="btn btn-orange" style="padding:11px 22px;font-size:14px;">Book a consult</a>
+      <a href="#contact" class="btn btn-orange js-open-consult" style="padding:11px 22px;font-size:14px;">Book a consult</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -48,23 +50,29 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#top">Home</a>
   <a href="#services">Services</a>
-  <a href="pricing.html">Pricing</a>
+  <a href="/about">About</a>
+  <a href="/pricing">Pricing</a>
   <a href="#process">How it works</a>
-  <a href="#group">The Group</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact" class="btn btn-orange">Book a consult</a>
+  <a href="#clients">Reviews</a>
+  <a href="#contact" class="btn btn-orange js-open-consult">Book a consult</a>
 </div>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="top">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
+      <source src="assets/video/hero-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="container">
     <div class="hero-copy">
       <span class="eyebrow">Financial partners since 2011</span>
       <h1>Clear numbers.<br><span>Confident</span> business.</h1>
-      <p class="lede">Account Caddie is the bookkeeping, tax and payroll partner behind growing South African businesses — turning messy financials into a clear, current picture you can actually make decisions from. Real accountants. Real accountability. No jargon.</p>
+      <p class="lede">Account Caddie is the bookkeeping, tax and payroll partner behind growing businesses across Africa, and international founders building here from the US, UK and Canada. We turn messy financials into a clear, current picture you can actually make decisions from. Real accountants. Real accountability. No jargon.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-orange">
+        <a href="#contact" class="btn btn-orange js-open-consult">
           Book your consult
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -77,22 +85,47 @@
       </div>
     </div>
 
-    <div class="dash-panel glass-dark">
-      <div class="dash-panel-head">
-        <span class="tag">Your Financial Snapshot</span>
-        <svg class="mark-lg" viewBox="0 0 24 24" fill="none" stroke="#f5831f" stroke-width="1.6"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg>
-      </div>
-      <div class="dash-row"><span class="k">Books reconciled</span><span class="v">Up to date</span></div>
-      <div class="dash-row"><span class="k">SARS filing status</span><span class="v">Compliant</span></div>
-      <div class="dash-row"><span class="k">Payroll run</span><span class="v">Complete</span></div>
-      <div class="dash-row"><span class="k">Next deadline</span><span class="v">Provisional tax</span></div>
-      <div class="dash-foot">
-        <span class="note">Status: stress-free</span>
-        <span class="badge">On track</span>
-      </div>
+    <div class="hero-globe">
+      <iframe
+        class="hero-globe-frame"
+        src="assets/interactive/globe.html"
+        title="Account Caddie global network"
+        loading="lazy"
+        scrolling="no"
+        referrerpolicy="no-referrer"
+      ></iframe>
     </div>
   </div>
 </header>
+
+<!-- ===================== WORKS WITH / LOGO MARQUEE ===================== -->
+<section class="marquee-section">
+  <div class="container">
+    <p class="marquee-label">Works seamlessly with the tools you already use</p>
+  </div>
+  <div class="marquee-track-wrap">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="brand-logo"><img src="assets/images/logos/sage-trimmed.png" alt="Sage"></span>
+        <span class="brand-logo"><img src="assets/images/logos/xero-trimmed.png" alt="Xero"></span>
+        <span class="brand-logo"><img src="assets/images/logos/simplepay-trimmed.png" alt="SimplePay"></span>
+        <span class="brand-logo"><img src="assets/images/logos/netcash-trimmed.png" alt="Netcash"></span>
+        <span class="brand-logo"><img src="assets/images/logos/sars-trimmed.png" alt="SARS"></span>
+        <span class="brand-logo"><img src="assets/images/logos/quickbooks-trimmed.png" alt="QuickBooks"></span>
+        <span class="brand-logo"><img src="assets/images/logos/zohobooks-trimmed.png" alt="Zoho Books"></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="brand-logo"><img src="assets/images/logos/sage-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/xero-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/simplepay-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/netcash-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/sars-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/quickbooks-trimmed.png" alt="" aria-hidden="true"></span>
+        <span class="brand-logo"><img src="assets/images/logos/zohobooks-trimmed.png" alt="" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== SERVICES ===================== -->
 <section class="services section-pad" id="services">
@@ -100,57 +133,86 @@
     <div class="section-head reveal">
       <span class="eyebrow">What we handle</span>
       <h2>Every number your business needs, covered.</h2>
-      <p>From your first CIPC registration to the financial plan behind your next five years — we match the right service to where your business actually stands today.</p>
+      <p class="i18n-term" data-zar="From your first CIPC registration to the financial plan behind your next five years, we match the right service to where your business actually stands today." data-usd="From your first business registration to the financial plan behind your next five years, we match the right service to where your business actually stands today." data-cad="From your first business registration to the financial plan behind your next five years, we match the right service to where your business actually stands today." data-gbp="From your first company registration to the financial plan behind your next five years, we match the right service to where your business actually stands today.">From your first CIPC registration to the financial plan behind your next five years, we match the right service to where your business actually stands today.</p>
     </div>
 
     <div class="service-grid">
       <div class="service-card reveal">
-        <span class="service-tag">Foundation</span>
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
-        <h3>Company Registration</h3>
-        <p>CIPC registration, tax and VAT number setup, and the compliance foundation that gets your business set up correctly from day one.</p>
-      </div>
-      <div class="service-card reveal">
         <span class="service-tag">Core</span>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16v14H4zM4 6l2-3h12l2 3M9 11h6M9 15h6"/></svg>
-        <h3>Bookkeeping</h3>
-        <p>Monthly reconciliations, management accounts, and clean records — an accurate, current picture of your business, every month.</p>
+        <h3>Accounting &amp; Reporting</h3>
+        <p>Monthly reconciliations, management accounts and clean records: an accurate, current picture of your business, every month.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-tag">Compliance</span>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>Tax &amp; SARS Compliance</h3>
-        <p>Income tax, VAT, provisional tax and SARS correspondence handled by registered practitioners — proactive, not reactive.</p>
+        <h3>Tax Services</h3>
+        <p class="i18n-term" data-zar="Income tax, VAT, provisional tax and SARS correspondence handled by registered practitioners, proactive not reactive." data-usd="Income tax, sales tax, estimated tax payments and IRS correspondence handled by experienced practitioners, proactive not reactive." data-cad="Income tax, GST/HST, tax instalments and CRA correspondence handled by experienced practitioners, proactive not reactive." data-gbp="Income tax, VAT, payments on account and HMRC correspondence handled by experienced practitioners, proactive not reactive.">Income tax, VAT, provisional tax and SARS correspondence handled by registered practitioners, proactive not reactive.</p>
       </div>
       <div class="service-card reveal">
-        <span class="service-tag">People</span>
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <h3>Payroll</h3>
-        <p>EMP201/EMP501 submissions, payslips, UIF and COIDA — accurate and on time, every month, for teams of any size.</p>
+        <span class="service-tag">Planning</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+        <h3>Financial Planning</h3>
+        <p>Budgets, cash-flow forecasts and goal-based planning that turn this year's numbers into next year's decisions.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-tag">Statutory</span>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 3v5h5M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg>
-        <h3>Annual Returns &amp; Statutory</h3>
-        <p>CIPC annual returns, beneficial ownership filings and secretarial duties — the paperwork that keeps you in good standing.</p>
+        <h3>Risk &amp; Compliance</h3>
+        <p class="i18n-term" data-zar="CIPC annual returns, beneficial ownership filings and the ongoing compliance work that keeps your business in good standing." data-usd="Annual state filings, beneficial ownership reporting and the ongoing compliance work that keeps your business in good standing." data-cad="Annual corporate filings, beneficial ownership reporting and the ongoing compliance work that keeps your business in good standing." data-gbp="Companies House filings, beneficial ownership reporting and the ongoing compliance work that keeps your business in good standing.">CIPC annual returns, beneficial ownership filings and the ongoing compliance work that keeps your business in good standing.</p>
       </div>
       <div class="service-card reveal">
-        <span class="service-tag">Strategic</span>
+        <span class="service-tag">Advisory</span>
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg>
-        <h3>CFO &amp; Financial Advisory</h3>
-        <p>Cash-flow forecasting, budgets, and strategic financial planning for businesses playing the long game, not just this quarter.</p>
+        <h3>Strategic Services</h3>
+        <p>CFO-level input on structuring, growth decisions and the calls that shape where your business is headed, not just where it's been.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Cash flow</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v11m0 0 4-4m-4 4-4-4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+        <h3>Debtors Management</h3>
+        <p>Credit control and accounts receivable follow-up, so outstanding invoices get chased and collected instead of sitting on the books.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">People</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Payroll Assistance</h3>
+        <p class="i18n-term" data-zar="EMP201/EMP501 submissions, payslips, UIF and COIDA: accurate and on time, every month, for teams of any size." data-usd="Payroll tax filings, payslips and workers' compensation: accurate and on time, every month, for teams of any size." data-cad="Payroll remittances, pay stubs and workers' compensation: accurate and on time, every month, for teams of any size." data-gbp="PAYE submissions, payslips and National Insurance: accurate and on time, every month, for teams of any size.">EMP201/EMP501 submissions, payslips, UIF and COIDA: accurate and on time, every month, for teams of any size.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Support</span>
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5Z"/></svg>
+        <h3>Caddie Support</h3>
+        <p>Direct access to your bookkeeping and accounts team for day-to-day questions, without waiting on a ticket queue.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===================== PARALLAX BANNER: LEDGER ===================== -->
+<section class="parallax-banner">
+  <div class="parallax-media">
+    <img src="assets/images/banner-ledger.jpg" data-parallax="0.15" alt="" loading="lazy">
+  </div>
+  <div class="container reveal">
+    <span class="eyebrow">Every line, checked</span>
+    <h2>Every transaction, accounted for.</h2>
+    <p class="i18n-term" data-zar="Bank statements, receipts, VAT invoices: reconciled by hand by someone who knows your business, not a black-box algorithm." data-usd="Bank statements, receipts, sales invoices: reconciled by hand by someone who knows your business, not a black-box algorithm." data-cad="Bank statements, receipts, GST/HST invoices: reconciled by hand by someone who knows your business, not a black-box algorithm." data-gbp="Bank statements, receipts, VAT invoices: reconciled by hand by someone who knows your business, not a black-box algorithm.">Bank statements, receipts, VAT invoices: reconciled by hand by someone who knows your business, not a black-box algorithm.</p>
+  </div>
+</section>
+
 <!-- ===================== HOW IT WORKS ===================== -->
 <section class="process section-pad on-dark" id="process">
+  <div class="process-video-wrap">
+    <video autoplay muted loop playsinline poster="assets/images/process-poster.jpg" data-parallax="0.08">
+      <source src="assets/video/process-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
       <h2>Four steps to a partnership that just runs.</h2>
-      <p>From first conversation to a steady monthly rhythm — here's exactly what to expect when you work with us.</p>
+      <p>From first conversation to a steady monthly rhythm, here's exactly what to expect when you work with us.</p>
     </div>
 
     <div class="steps">
@@ -163,13 +225,13 @@
       <div class="step reveal">
         <div class="step-num">02</div>
         <h3>We assess</h3>
-        <p>We review your current financials, SARS standing and compliance, and hand you a clear, honest picture.</p>
+        <p class="i18n-term" data-zar="We review your current financials, SARS standing and compliance, and hand you a clear, honest picture." data-usd="We review your current financials, IRS standing and compliance, and hand you a clear, honest picture." data-cad="We review your current financials, CRA standing and compliance, and hand you a clear, honest picture." data-gbp="We review your current financials, HMRC standing and compliance, and hand you a clear, honest picture.">We review your current financials, SARS standing and compliance, and hand you a clear, honest picture.</p>
         <span class="meta">5 business days</span>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
         <h3>We propose</h3>
-        <p>You get a tailored plan — bookkeeping, tax, payroll, or all three — priced simply, with nothing hidden.</p>
+        <p>You get a tailored plan (bookkeeping, tax, payroll, or all three) priced simply, with nothing hidden.</p>
         <span class="meta">1 proposal</span>
       </div>
       <div class="step reveal">
@@ -184,6 +246,9 @@
 
 <!-- ===================== WHY US / STATS ===================== -->
 <section class="stats section-pad" id="stats">
+  <div class="stats-media">
+    <img src="assets/images/stats-bg.jpg" data-parallax="0.1" alt="" loading="lazy">
+  </div>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Why business owners stay with us</span>
@@ -200,7 +265,7 @@
       </div>
       <div class="stat-card reveal">
         <strong>100%</strong>
-        <span>SARS-registered tax practitioners handling every filing we make.</span>
+        <span class="i18n-term" data-zar="SARS-registered tax practitioners handling every filing we make." data-usd="Experienced tax practitioners handling every IRS filing we make." data-cad="Experienced tax practitioners handling every CRA filing we make." data-gbp="HMRC-registered tax practitioners handling every filing we make.">SARS-registered tax practitioners handling every filing we make.</span>
       </div>
       <div class="stat-card reveal">
         <strong>48 hr</strong>
@@ -220,14 +285,29 @@
           A member of New Generation Group
         </div>
         <h2 style="margin-top:16px;font-size:clamp(1.6rem,2.6vw,2.2rem);">Backed by a group built on bringing humanity and technology together.</h2>
-        <p class="lede">Account Caddie draws on the scale, governance and technology backbone of the New Generation Group — a South African consulting and technology group whose purpose is to deliver purpose-fit solutions that help businesses operate smarter and grow sustainably. That means your accountant is never a lone operator: it's a full team of specialists, systems and oversight standing behind every number we sign off.</p>
+        <p class="lede">Account Caddie draws on the scale, governance and technology backbone of the New Generation Group, a South African consulting and technology group whose purpose is to deliver purpose-fit solutions that help businesses operate smarter and grow sustainably. That means your accountant is never a lone operator: it's a full team of specialists, systems and oversight standing behind every number we sign off.</p>
       </div>
       <div class="group-facts">
         <div><strong>Est. 2006</strong><span>New Generation Group founded</span></div>
         <div><strong>Level 1</strong><span>B-BBEE contributor status</span></div>
         <div><strong>6</strong><span>Specialist divisions across the group</span></div>
+        <a href="https://www.newgengroup.co.za/" target="_blank" rel="noopener" class="group-logo-link" aria-label="Visit the New Generation Group website">
+          <img src="assets/images/newgengroup-logo-trimmed.png" alt="New Generation Group" class="group-logo">
+        </a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== PARALLAX BANNER: REPORTS ===================== -->
+<section class="parallax-banner">
+  <div class="parallax-media">
+    <img src="assets/images/banner-reports.jpg" data-parallax="0.15" alt="" loading="lazy">
+  </div>
+  <div class="container reveal">
+    <span class="eyebrow">Real people, real oversight</span>
+    <h2>A team reviews your numbers, not just software.</h2>
+    <p>Every set of accounts gets a second pair of eyes before it reaches you, so what you see is checked, not just calculated.</p>
   </div>
 </section>
 
@@ -243,7 +323,7 @@
         <div class="stars">★★★★★</div>
         <p class="quote">"Our books used to be the thing I dreaded most. Now I get a clean set every month without asking twice."</p>
         <div class="who">
-          <div class="avatar">TM</div>
+          <img class="avatar" src="assets/images/reviews/thabo-m.jpg" alt="Thabo M.">
           <div><strong>Thabo M.</strong><span>Founder, logistics SME</span></div>
         </div>
       </div>
@@ -251,15 +331,15 @@
         <div class="stars">★★★★★</div>
         <p class="quote">"They caught a VAT error SARS would have flagged months later. That single call paid for the year."</p>
         <div class="who">
-          <div class="avatar">NS</div>
+          <img class="avatar" src="assets/images/reviews/nadia-s.jpg" alt="Nadia S.">
           <div><strong>Nadia S.</strong><span>Owner, retail group</span></div>
         </div>
       </div>
       <div class="quote-card reveal">
         <div class="stars">★★★★★</div>
-        <p class="quote">"Payroll day used to be a scramble. Now it's the most boring, predictable day of my month — exactly how I like it."</p>
+        <p class="quote">"Payroll day used to be a scramble. Now it's the most boring, predictable day of my month, exactly how I like it."</p>
         <div class="who">
-          <div class="avatar">JK</div>
+          <img class="avatar" src="assets/images/reviews/johan-k.jpg" alt="Johan K.">
           <div><strong>Johan K.</strong><span>Director, construction firm</span></div>
         </div>
       </div>
@@ -274,7 +354,7 @@
       <div>
         <span class="eyebrow" style="color:var(--orange-500);">Book your consult</span>
         <h2 style="margin-top:16px;">Let's talk about your business.</h2>
-        <p class="lede">Tell us a little about your business and where it's at. We'll come back with an honest read of your books and a plan — no obligation, no jargon, no hard sell.</p>
+        <p class="lede">Tell us a little about your business and where it's at. We'll come back with an honest read of your books and a plan: no obligation, no jargon, no hard sell.</p>
       </div>
       <form class="cta-form" onsubmit="return false;">
         <div class="row">
@@ -290,22 +370,22 @@
         <div class="row">
           <div>
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@company.co.za" required>
+            <input id="email" type="email" placeholder="you@company.com" required>
           </div>
           <div>
             <label for="phone">Phone</label>
-            <input id="phone" type="tel" placeholder="082 000 0000">
+            <input id="phone" type="tel" placeholder="Phone number">
           </div>
         </div>
         <div>
           <label for="need">What do you need?</label>
           <select id="need">
             <option>Bookkeeping</option>
-            <option>Tax &amp; SARS compliance</option>
+            <option class="i18n-term" data-zar="Tax &amp; SARS compliance" data-usd="Tax &amp; IRS compliance" data-cad="Tax &amp; CRA compliance" data-gbp="Tax &amp; HMRC compliance">Tax &amp; SARS compliance</option>
             <option>Payroll</option>
             <option>Company registration</option>
             <option>CFO &amp; financial advisory</option>
-            <option>Not sure yet — advise me</option>
+            <option>Not sure yet, advise me</option>
           </select>
         </div>
         <button type="submit" class="btn btn-orange">Request my consult</button>
@@ -321,23 +401,23 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <svg class="mark" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#f5831f"/><path d="M6 15l4-4 3 3 5-6" stroke="#0d1527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          Account Caddie
+          <img src="assets/images/logo.png" alt="Account Caddie" class="logo-img logo-img-footer">
         </div>
-        <p>Bookkeeping, tax, payroll and financial advisory for growing South African businesses. A member of the New Generation Group.</p>
+        <p>Bookkeeping, tax, payroll and financial advisory for growing businesses across Africa, and internationally in the US, UK and Canada. A member of the New Generation Group.</p>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Bookkeeping</a></li>
-          <li><a href="#services">Tax &amp; SARS</a></li>
-          <li><a href="#services">Payroll</a></li>
-          <li><a href="#services">CFO advisory</a></li>
+          <li><a href="#services">Accounting &amp; Reporting</a></li>
+          <li><a href="#services">Tax Services</a></li>
+          <li><a href="#services">Payroll Assistance</a></li>
+          <li><a href="#services">Strategic Services</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
+          <li><a href="/about">About us</a></li>
           <li><a href="#process">How it works</a></li>
           <li><a href="#stats">Why us</a></li>
           <li><a href="#group">New Generation Group</a></li>
@@ -349,17 +429,121 @@
         <ul>
           <li><a href="mailto:info@accountcaddie.co.za">info@accountcaddie.co.za</a></li>
           <li><a href="tel:+27870876297">087 087 6297</a></li>
-          <li><a href="#contact">Book a consult</a></li>
+          <li><a href="#contact" class="js-open-consult">Book a consult</a></li>
         </ul>
+      </div>
+      <div>
+        <h4>Authorised partner</h4>
+        <a href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=22d5d5bde9462c6acdb78f4a5122976e" target="_blank" rel="noopener" class="footer-partner-badge">
+          <img src="assets/images/badges/zoho-authorized-partner.png" alt="Zoho Authorized Partner">
+        </a>
+        <div class="footer-social">
+          <a href="https://x.com/AccountCaddie" target="_blank" rel="noopener" aria-label="Account Caddie on X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.68 10.62 20.5 3h-1.62l-5.92 6.62L8.4 3H3l7.15 9.6L3 21h1.62l6.24-6.98L15.6 21H21l-7.32-10.38Zm-2.2 2.46-.72-1-5.6-7.66h2.1l4.5 6.15.72 1 5.85 8h-2.1l-4.75-6.49Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.1c0-.89.25-1.5 1.52-1.5h1.63V3.86A22 22 0 0 0 14 3.7c-2.3 0-3.87 1.4-3.87 3.98v2.34H7.5v3.08h2.63V21h3.37Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3.75a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.5 20h-3.37v-6.02c0-1.43-.03-3.27-2-3.27-2 0-2.31 1.56-2.31 3.17V20H9.44V8.5h3.24v1.57h.05c.45-.85 1.55-1.75 3.19-1.75 3.41 0 4.04 2.25 4.04 5.17V20Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/accountcaddie/" target="_blank" rel="noopener" aria-label="Account Caddie on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Account Caddie. A member of New Generation Group.</span>
       <span>*Applies where filings are submitted on our recommended timeline.</span>
+      <button type="button" class="region-badge js-open-region">
+        <span class="region-badge-flag">🇿🇦</span>
+        <span class="region-badge-name">South Africa</span>
+        <span class="region-badge-change">Change</span>
+      </button>
     </div>
   </div>
 </footer>
 
+<!-- ===================== BOOK A CONSULT MODAL ===================== -->
+<!-- ===================== REGION / COUNTRY MODAL ===================== -->
+<div class="modal-overlay" id="regionModal" aria-hidden="true">
+  <div class="modal-panel glass-dark region-modal-panel" role="dialog" aria-modal="true" aria-labelledby="regionModalTitle">
+    <button type="button" class="modal-close" id="regionModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Welcome</span>
+    <h2 id="regionModalTitle">Where are you browsing from?</h2>
+    <p class="lede">We'll match the pricing and terminology to your country, SARS and VAT for South Africa, IRS for the US, CRA for Canada, HMRC for the UK. Change this anytime from the footer.</p>
+    <div class="region-grid">
+      <button type="button" class="region-option" data-region="ZAR">
+        <span class="region-flag">🇿🇦</span>
+        <span class="region-name">South Africa</span>
+      </button>
+      <button type="button" class="region-option" data-region="USD">
+        <span class="region-flag">🇺🇸</span>
+        <span class="region-name">United States</span>
+      </button>
+      <button type="button" class="region-option" data-region="CAD">
+        <span class="region-flag">🇨🇦</span>
+        <span class="region-name">Canada</span>
+      </button>
+      <button type="button" class="region-option" data-region="GBP">
+        <span class="region-flag">🇬🇧</span>
+        <span class="region-name">United Kingdom</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="consultModal" aria-hidden="true">
+  <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
+    <button type="button" class="modal-close" id="consultModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Book a consult</span>
+    <h2 id="consultModalTitle">Let's talk about your business.</h2>
+    <p class="lede">Tell us a little about your business and where it's at. We'll come back with an honest read of your books and a plan: no obligation, no jargon, no hard sell.</p>
+
+    <form class="cta-form" id="consultForm">
+      <div class="row">
+        <div>
+          <label for="consultName">Full name</label>
+          <input id="consultName" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="consultCompany">Company</label>
+          <input id="consultCompany" type="text" placeholder="Business name">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="consultEmail">Email</label>
+          <input id="consultEmail" type="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="consultPhone">Phone</label>
+          <input id="consultPhone" type="tel" placeholder="Phone number">
+        </div>
+      </div>
+      <div>
+        <label for="consultNeed">What do you need?</label>
+        <select id="consultNeed">
+          <option>Bookkeeping</option>
+          <option class="i18n-term" data-zar="Tax &amp; SARS compliance" data-usd="Tax &amp; IRS compliance" data-cad="Tax &amp; CRA compliance" data-gbp="Tax &amp; HMRC compliance">Tax &amp; SARS compliance</option>
+          <option>Payroll</option>
+          <option>Company registration</option>
+          <option>CFO &amp; financial advisory</option>
+          <option>Not sure yet, advise me</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-orange">Request my consult</button>
+      <span class="form-note">Opens your email client, addressed to info@accountcaddie.co.za. We'll reply within one business day.</span>
+    </form>
+  </div>
+</div>
+
 <script src="js/main.js"></script>
+<script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq580dc932eb302b1787ac99d1f4283765d5a769daaa31c27d27d7def2577c8518" defer></script>
 </body>
 </html>
