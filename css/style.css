@@ -1256,3 +1256,42 @@ table.terms-table{
 @media (max-width:640px){
   .modal-panel{ padding:34px 24px; }
 }
+
+/* =============== region / country modal =============== */
+.region-modal-panel{ max-width:480px; }
+.region-modal-panel .lede{ margin-top:10px; }
+.region-grid{
+  margin-top:28px;
+  display:grid; grid-template-columns:1fr 1fr; gap:14px;
+}
+.region-option{
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  padding:24px 16px;
+  border-radius:var(--radius-md);
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+  color:var(--white);
+  font-family:var(--font-body);
+  cursor:pointer;
+  transition:background .25s, border-color .25s, transform .25s;
+}
+.region-option:hover{ background:rgba(255,255,255,.1); border-color:rgba(245,131,31,.5); transform:translateY(-2px); }
+.region-option.is-selected{ border-color:var(--orange-500); background:rgba(245,131,31,.14); }
+.region-flag{ font-size:34px; line-height:1; }
+.region-name{ font-size:14.5px; font-weight:600; }
+
+.region-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.55);
+  font-family:var(--font-body);
+  font-size:12.5px; font-weight:600;
+  cursor:pointer;
+  transition:background .25s, color .25s;
+}
+.region-badge:hover{ background:rgba(255,255,255,.09); color:var(--white); }
+.region-badge-flag{ font-size:15px; }
+.region-badge-change{ color:var(--orange-500); text-decoration:underline; margin-left:2px; }

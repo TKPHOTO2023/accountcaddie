@@ -41,45 +41,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // currency switcher (pricing page)
-  // International package prices are fixed, real monthly rates per currency
-  // (set via data-usd/data-gbp/data-cad in pricing.html) — not a currency
-  // conversion from the ZAR price. Add-ons have no international rate and
-  // stay in ZAR regardless of the selected currency.
+  // ---------------------------------------------------------------------
+  // Region: drives both the pricing page's currency and, site-wide, the
+  // tax/compliance terminology (SARS/CIPC vs IRS vs CRA vs HMRC) via
+  // .i18n-term elements carrying data-zar/data-usd/data-cad/data-gbp.
+  // Persisted in localStorage so the choice holds across pages; the
+  // "Where are you browsing from?" modal only asks once.
+  // ---------------------------------------------------------------------
+  const REGIONS = {
+    ZAR: { flag: '🇿🇦', name: 'South Africa' },
+    USD: { flag: '🇺🇸', name: 'United States' },
+    CAD: { flag: '🇨🇦', name: 'Canada' },
+    GBP: { flag: '🇬🇧', name: 'United Kingdom' }
+  };
   const FX_SYMBOLS = { ZAR: 'R', USD: '$', GBP: '£', CAD: 'CA$' };
   const currencySwitch = document.getElementById('currencySwitch');
   const amountEls = document.querySelectorAll('.amount[data-zar]');
   const periodEls = document.querySelectorAll('.period[data-zar-label]');
-  // Package inclusions that name a specific tax authority/form (SARS,
-  // CIPC, VAT201...) swap to the equivalent term for the selected
-  // country, so the wording matches the country whose currency is shown.
+  // Any copy naming a specific tax authority/form (SARS, CIPC, VAT201,
+  // "Tax & SARS compliance"...) swaps to the equivalent term for the
+  // selected country — this selector covers every page, not just pricing.
   const termEls = document.querySelectorAll('.i18n-term[data-zar]');
 
-  function applyCurrency(currency) {
-    const key = currency.toLowerCase();
+  function applyRegion(region) {
+    if (!REGIONS[region]) region = 'ZAR';
+    const key = region.toLowerCase();
+
     amountEls.forEach(el => {
-      const raw = currency === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      const raw = region === 'ZAR' ? el.dataset.zar : el.dataset[key];
       if (!raw) return;
-      el.textContent = FX_SYMBOLS[currency] + Number(raw).toLocaleString('en-US');
+      el.textContent = FX_SYMBOLS[region] + Number(raw).toLocaleString('en-US');
     });
     periodEls.forEach(el => {
-      el.textContent = currency === 'ZAR' ? el.dataset.zarLabel : el.dataset.intlLabel;
+      el.textContent = region === 'ZAR' ? el.dataset.zarLabel : el.dataset.intlLabel;
     });
     termEls.forEach(el => {
-      const text = currency === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      const text = region === 'ZAR' ? el.dataset.zar : el.dataset[key];
       if (text) el.textContent = text;
     });
+
+    if (currencySwitch) {
+      currencySwitch.querySelectorAll('.currency-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.currency === region);
+      });
+    }
+    document.querySelectorAll('.region-badge-flag').forEach(el => { el.textContent = REGIONS[region].flag; });
+    document.querySelectorAll('.region-badge-name').forEach(el => { el.textContent = REGIONS[region].name; });
+    document.querySelectorAll('.region-option').forEach(b => {
+      b.classList.toggle('is-selected', b.dataset.region === region);
+    });
+  }
+
+  function setRegion(region) {
+    applyRegion(region);
+    localStorage.setItem('ac-region', region);
   }
 
   if (currencySwitch && amountEls.length) {
     currencySwitch.addEventListener('click', (e) => {
       const btn = e.target.closest('.currency-btn');
       if (!btn) return;
-      currencySwitch.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      applyCurrency(btn.dataset.currency);
+      setRegion(btn.dataset.currency);
     });
   }
+
+  // Apply whatever region is already stored (or the ZAR default) to this
+  // page's content immediately, before the modal logic below decides
+  // whether to ask.
+  const savedRegion = localStorage.getItem('ac-region');
+  applyRegion(savedRegion || 'ZAR');
 
   // Shared modal open/close plumbing (focus trap in/out, Escape, backdrop
   // click). Returns null if the overlay isn't on this page.
@@ -181,6 +211,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
     });
+  }
+
+  // "Where are you browsing from?" region modal — asks once (first visit
+  // with nothing in localStorage), reachable again anytime via the
+  // footer's region badge.
+  const regionModal = setupModal(document.getElementById('regionModal'));
+  if (regionModal) {
+    document.querySelectorAll('.region-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setRegion(btn.dataset.region);
+        regionModal.close();
+      });
+    });
+    const regionClose = document.getElementById('regionModalClose');
+    if (regionClose) {
+      regionClose.addEventListener('click', () => setRegion('ZAR'));
+    }
+    document.querySelectorAll('.js-open-region').forEach(btn => {
+      btn.addEventListener('click', () => regionModal.open());
+    });
+
+    if (!savedRegion) {
+      window.setTimeout(() => regionModal.open(), 600);
+    }
   }
 
   // scroll reveal

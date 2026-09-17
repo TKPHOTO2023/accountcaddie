@@ -409,11 +409,46 @@
     <div class="footer-bottom">
       <span>© <span id="year"></span> Account Caddie. A member of New Generation Group.</span>
       <span>Packages billed in ZAR, USD, GBP or CAD. Add-ons billed in ZAR.</span>
+      <button type="button" class="region-badge js-open-region">
+        <span class="region-badge-flag">🇿🇦</span>
+        <span class="region-badge-name">South Africa</span>
+        <span class="region-badge-change">Change</span>
+      </button>
     </div>
   </div>
 </footer>
 
 <!-- ===================== BOOK A CONSULT MODAL ===================== -->
+<!-- ===================== REGION / COUNTRY MODAL ===================== -->
+<div class="modal-overlay" id="regionModal" aria-hidden="true">
+  <div class="modal-panel glass-dark region-modal-panel" role="dialog" aria-modal="true" aria-labelledby="regionModalTitle">
+    <button type="button" class="modal-close" id="regionModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="eyebrow" style="color:var(--orange-500);">Welcome</span>
+    <h2 id="regionModalTitle">Where are you browsing from?</h2>
+    <p class="lede">We'll match the pricing and terminology to your country, SARS and VAT for South Africa, IRS for the US, CRA for Canada, HMRC for the UK. Change this anytime from the footer.</p>
+    <div class="region-grid">
+      <button type="button" class="region-option" data-region="ZAR">
+        <span class="region-flag">🇿🇦</span>
+        <span class="region-name">South Africa</span>
+      </button>
+      <button type="button" class="region-option" data-region="USD">
+        <span class="region-flag">🇺🇸</span>
+        <span class="region-name">United States</span>
+      </button>
+      <button type="button" class="region-option" data-region="CAD">
+        <span class="region-flag">🇨🇦</span>
+        <span class="region-name">Canada</span>
+      </button>
+      <button type="button" class="region-option" data-region="GBP">
+        <span class="region-flag">🇬🇧</span>
+        <span class="region-name">United Kingdom</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="consultModal" aria-hidden="true">
   <div class="modal-panel glass-dark" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
     <button type="button" class="modal-close" id="consultModalClose" aria-label="Close">
@@ -448,7 +483,7 @@
         <label for="consultNeed">What do you need?</label>
         <select id="consultNeed">
           <option>Bookkeeping</option>
-          <option>Tax &amp; SARS compliance</option>
+          <option class="i18n-term" data-zar="Tax &amp; SARS compliance" data-usd="Tax &amp; IRS compliance" data-cad="Tax &amp; CRA compliance" data-gbp="Tax &amp; HMRC compliance">Tax &amp; SARS compliance</option>
           <option>Payroll</option>
           <option>Company registration</option>
           <option>CFO &amp; financial advisory</option>
