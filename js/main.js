@@ -41,41 +41,204 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // currency switcher (pricing page)
-  // Rates are ZAR per 1 unit of currency — indicative, updated 2026.
-  const FX_RATES = { ZAR: 1, USD: 18.5, GBP: 23.5, CAD: 13.5 };
+  // ---------------------------------------------------------------------
+  // Region: drives both the pricing page's currency and, site-wide, the
+  // tax/compliance terminology (SARS/CIPC vs IRS vs CRA vs HMRC) via
+  // .i18n-term elements carrying data-zar/data-usd/data-cad/data-gbp.
+  // Persisted in localStorage so the choice holds across pages; the
+  // "Where are you browsing from?" modal only asks once.
+  // ---------------------------------------------------------------------
+  const REGIONS = {
+    ZAR: { flag: '🇿🇦', name: 'South Africa' },
+    USD: { flag: '🇺🇸', name: 'United States' },
+    CAD: { flag: '🇨🇦', name: 'Canada' },
+    GBP: { flag: '🇬🇧', name: 'United Kingdom' }
+  };
   const FX_SYMBOLS = { ZAR: 'R', USD: '$', GBP: '£', CAD: 'CA$' };
   const currencySwitch = document.getElementById('currencySwitch');
   const amountEls = document.querySelectorAll('.amount[data-zar]');
+  const periodEls = document.querySelectorAll('.period[data-zar-label]');
+  // Any copy naming a specific tax authority/form (SARS, CIPC, VAT201,
+  // "Tax & SARS compliance"...) swaps to the equivalent term for the
+  // selected country — this selector covers every page, not just pricing.
+  const termEls = document.querySelectorAll('.i18n-term[data-zar]');
 
-  function formatAmount(zarValue, currency) {
-    const rate = FX_RATES[currency] || 1;
-    const converted = zarValue / rate;
-    const rounded = currency === 'ZAR'
-      ? Math.round(converted / 5) * 5   // keep ZAR figures on clean R5 increments
-      : Math.round(converted);
-    return FX_SYMBOLS[currency] + rounded.toLocaleString('en-US');
+  function applyRegion(region) {
+    if (!REGIONS[region]) region = 'ZAR';
+    const key = region.toLowerCase();
+
+    amountEls.forEach(el => {
+      const raw = region === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      if (!raw) return;
+      el.textContent = FX_SYMBOLS[region] + Number(raw).toLocaleString('en-US');
+    });
+    periodEls.forEach(el => {
+      el.textContent = region === 'ZAR' ? el.dataset.zarLabel : el.dataset.intlLabel;
+    });
+    termEls.forEach(el => {
+      const text = region === 'ZAR' ? el.dataset.zar : el.dataset[key];
+      if (text) el.textContent = text;
+    });
+
+    if (currencySwitch) {
+      currencySwitch.querySelectorAll('.currency-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.currency === region);
+      });
+    }
+    document.querySelectorAll('.region-badge-flag').forEach(el => { el.textContent = REGIONS[region].flag; });
+    document.querySelectorAll('.region-badge-name').forEach(el => { el.textContent = REGIONS[region].name; });
+    document.querySelectorAll('.region-option').forEach(b => {
+      b.classList.toggle('is-selected', b.dataset.region === region);
+    });
   }
 
-  function applyCurrency(currency) {
-    amountEls.forEach(el => {
-      const zar = parseFloat(el.getAttribute('data-zar'));
-      if (!isNaN(zar)) el.textContent = formatAmount(zar, currency);
-    });
+  function setRegion(region) {
+    applyRegion(region);
+    localStorage.setItem('ac-region', region);
   }
 
   if (currencySwitch && amountEls.length) {
     currencySwitch.addEventListener('click', (e) => {
       const btn = e.target.closest('.currency-btn');
       if (!btn) return;
-      currencySwitch.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      applyCurrency(btn.dataset.currency);
+      setRegion(btn.dataset.currency);
     });
   }
 
+  // Apply whatever region is already stored (or the ZAR default) to this
+  // page's content immediately, before the modal logic below decides
+  // whether to ask.
+  const savedRegion = localStorage.getItem('ac-region');
+  applyRegion(savedRegion || 'ZAR');
+
+  // Shared modal open/close plumbing (focus trap in/out, Escape, backdrop
+  // click). Returns null if the overlay isn't on this page.
+  function setupModal(overlay) {
+    if (!overlay) return null;
+    const form = overlay.querySelector('form');
+    const closeBtn = overlay.querySelector('.modal-close');
+    let lastFocused = null;
+
+    function open(onOpen) {
+      lastFocused = document.activeElement;
+      if (onOpen) onOpen();
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstInput = form && form.querySelector('input:not([type="hidden"])');
+      if (firstInput) firstInput.focus();
+    }
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    return { open, close, form };
+  }
+
+  // "Start here" get-started modal (pricing page tier cards)
+  const startTriggers = document.querySelectorAll('.tier-start[data-package]');
+  const startModal = setupModal(document.getElementById('startModal'));
+  if (startModal && startTriggers.length) {
+    const packageField = document.getElementById('startPackageField');
+    const packageLabel = document.getElementById('startModalPackage');
+
+    startTriggers.forEach(btn => {
+      btn.addEventListener('click', () => startModal.open(() => {
+        packageField.value = btn.dataset.package;
+        packageLabel.textContent = btn.dataset.package;
+      }));
+    });
+
+    startModal.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pkg = packageField.value;
+      const name = document.getElementById('startName').value.trim();
+      const company = document.getElementById('startCompany').value.trim();
+      const email = document.getElementById('startEmail').value.trim();
+      const phone = document.getElementById('startPhone').value.trim();
+      const needs = document.getElementById('startNeeds').value.trim();
+
+      const subject = `New enquiry: ${pkg} package`;
+      const bodyLines = [
+        `Package: ${pkg}`,
+        `Name: ${name}`,
+        company && `Company: ${company}`,
+        `Email: ${email}`,
+        phone && `Phone: ${phone}`,
+        needs && `\nSpecific requirements:\n${needs}`
+      ].filter(Boolean);
+
+      window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    });
+  }
+
+  // "Book a consult" modal (nav, hero, footer and CTA buttons site-wide)
+  const consultTriggers = document.querySelectorAll('.js-open-consult');
+  const consultModal = setupModal(document.getElementById('consultModal'));
+  if (consultModal && consultTriggers.length) {
+    consultTriggers.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        consultModal.open();
+      });
+    });
+
+    consultModal.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('consultName').value.trim();
+      const company = document.getElementById('consultCompany').value.trim();
+      const email = document.getElementById('consultEmail').value.trim();
+      const phone = document.getElementById('consultPhone').value.trim();
+      const need = document.getElementById('consultNeed').value;
+
+      const subject = 'New consult request';
+      const bodyLines = [
+        `What they need: ${need}`,
+        `Name: ${name}`,
+        company && `Company: ${company}`,
+        `Email: ${email}`,
+        phone && `Phone: ${phone}`
+      ].filter(Boolean);
+
+      window.location.href = `mailto:info@accountcaddie.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    });
+  }
+
+  // "Where are you browsing from?" region modal — asks once (first visit
+  // with nothing in localStorage), reachable again anytime via the
+  // footer's region badge.
+  const regionModal = setupModal(document.getElementById('regionModal'));
+  if (regionModal) {
+    document.querySelectorAll('.region-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setRegion(btn.dataset.region);
+        regionModal.close();
+      });
+    });
+    const regionClose = document.getElementById('regionModalClose');
+    if (regionClose) {
+      regionClose.addEventListener('click', () => setRegion('ZAR'));
+    }
+    document.querySelectorAll('.js-open-region').forEach(btn => {
+      btn.addEventListener('click', () => regionModal.open());
+    });
+
+    if (!savedRegion) {
+      window.setTimeout(() => regionModal.open(), 600);
+    }
+  }
+
   // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal, .service-card, .step, .tier-card, .faq-item');
+  const revealEls = document.querySelectorAll('.reveal, .service-card, .step, .tier-stack, .faq-item');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
@@ -91,5 +254,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => io.observe(el));
+  }
+
+  // parallax media — translates each [data-parallax] layer against scroll
+  // position, gated behind an IntersectionObserver so only sections
+  // actually on screen do any work.
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  if (parallaxEls.length && !prefersReduced) {
+    const active = new Set();
+    let ticking = false;
+
+    function updateParallax() {
+      active.forEach(el => {
+        const rect = el.parentElement.getBoundingClientRect();
+        const speed = parseFloat(el.dataset.parallax) || 0.15;
+        const offset = (rect.top - (window.innerHeight - rect.height) / 2) * speed;
+        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+      });
+      ticking = false;
+    }
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    const parallaxIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) active.add(entry.target);
+        else active.delete(entry.target);
+      });
+      requestTick();
+    }, { rootMargin: '20% 0px' });
+
+    parallaxEls.forEach(el => parallaxIo.observe(el));
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
   }
 });
